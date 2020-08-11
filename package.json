@@ -1,14 +1,12 @@
 {
   "name": "harmonize_tools",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "HARMONIZE TOOLS",
+  "main": "server/app.js",
   "scripts": {
     "install-packages": "npm install --prefix server && npm install --prefix clients/orgchart && npm install --prefix clients/mainpage",
-    "build-frontends": "npm run build --prefix clients/orgchart && npm run build --prefix clients/mainpage",
-    "start": "NODE_ENV=production node server/app.js",
-    "test-orgchart": "concurrently nodemon server/app.js \"npm start --prefix clients/orgchart\"",
-    "test-mainpage": "concurrently nodemon server/app.js \"npm start --prefix clients/mainpage\""
+    "build-clients": "npm run build --prefix clients/orgchart && npm run build --prefix clients/mainpage",
+    "start": "NODE_ENV=production node server/app.js"
   },
   "author": "",
   "license": "ISC"

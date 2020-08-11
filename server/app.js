@@ -1,4 +1,4 @@
-require("dotenv").config({ path: "./config/config.env" });
+require("dotenv").config({ path: `${__dirname}/config/config.env` });
 const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
@@ -38,9 +38,17 @@ if (process.env.NODE_ENV === "development") {
 
 // Serve built front end in production
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "main-page", "build")));
-  app.use("/orgchart", express.static(path.join(__dirname, "orgchart", "build")));
-  app.use("/calculator", express.static(path.join(__dirname, "calculator")));
+  app.use(
+    express.static(path.join(__dirname, "../clients", "mainpage", "build"))
+  );
+  app.use(
+    "/orgchart",
+    express.static(path.join(__dirname, "../clients", "orgchart", "build"))
+  );
+  app.use(
+    "/calculator",
+    express.static(path.join(__dirname, "../clients", "calculator"))
+  );
 }
 
 // Mount Routers
@@ -53,13 +61,19 @@ app.use(errorHandler);
 // Catch all
 if (process.env.NODE_ENV === "production") {
   app.use("/orgchart/*", (req, res, nect) => {
-    res.sendFile(path.join(__dirname, "orgchart", "build", "index.html"));
+    res.sendFile(
+      path.join(__dirname, "../clients", "orgchart", "build", "index.html")
+    );
   });
   app.use("/calculator/*", (req, res, nect) => {
-    res.sendFile(path.join(__dirname, "calculator", "index.html"));
+    res.sendFile(
+      path.join(__dirname, "../clients", "calculator", "index.html")
+    );
   });
   app.use("*", (req, res, next) => {
-    res.sendFile(path.join(__dirname, "main-page", "build", "index.html"));
+    res.sendFile(
+      path.join(__dirname, "../clients", "mainpage", "build", "index.html")
+    );
   });
 }
 

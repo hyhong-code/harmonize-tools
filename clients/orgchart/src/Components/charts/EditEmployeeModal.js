@@ -39,6 +39,9 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
       centered
       className="chart-control-modal"
       size="sm"
+      onClick={(evt) => {
+        evt.stopPropagation();
+      }}
     >
       <Modal.Header className="header" closeButton>
         <Modal.Title id="contained-modal-title-vcenter">

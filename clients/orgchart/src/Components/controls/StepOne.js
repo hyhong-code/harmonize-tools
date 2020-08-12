@@ -37,7 +37,7 @@ const StepOne = ({ template, getTemplate, setStep }) => {
           alt="empty-csv-screenshot"
         />
         <button className="step-one-download" onClick={getTemplate}>
-          Download file <i className="fas fa-download"></i>
+          Download Template <i className="fas fa-download"></i>
         </button>
       </div>
       <div className="stepone-actions">

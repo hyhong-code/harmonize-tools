@@ -9,5 +9,6 @@
     "start": "NODE_ENV=production node server/app.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {}
 }

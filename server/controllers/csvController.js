@@ -7,7 +7,7 @@ const parseCsv = require("../utils/parseCsv");
 exports.getCsvTemplate = (req, res, next) => {
   // Send back template csv
   // res.status(200).download("./csv/template.csv");
-  res.status(200).download("./csv/empty.csv");
+  res.status(200).download(path.join(__dirname, "../csv", "empty.csv"));
 };
 
 // @desc    Upload modified csv

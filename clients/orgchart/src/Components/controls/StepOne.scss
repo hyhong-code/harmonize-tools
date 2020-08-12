@@ -123,8 +123,7 @@
   }
 
   .step-one-download {
-    // margin-top: 1.5rem;
-    width: 10rem;
+    align-self: flex-start;
     height: 2.2rem;
     border-radius: 0.5rem;
     box-shadow: 0 2.4px 5.6px 0 rgba($greyed-out-chart-content, 0.9);
@@ -135,6 +134,8 @@
     color: $main-color;
     outline: none;
     transition: translateY, box-shadow, 0.2s ease-out;
+    padding-left: 1rem;
+    padding-right: 1rem;
 
     &:hover {
       transform: translateY(-1px);

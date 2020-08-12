@@ -11,6 +11,7 @@ const ConfirmDeletePopup = ({
 }) => {
   return (
     <Modal
+      onClick={(evt) => evt.stopPropagation()}
       show={deletePopupShow}
       onHide={onHide}
       size="sm"

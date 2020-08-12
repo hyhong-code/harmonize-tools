@@ -48,6 +48,7 @@ const AddEmployeeModal = ({
 
   return (
     <Modal
+      onClick={(evt) => evt.stopPropagation()}
       {...otherProps}
       size="sm"
       aria-labelledby="contained-modal-title-vcenter"

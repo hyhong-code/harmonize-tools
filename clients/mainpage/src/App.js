@@ -118,7 +118,7 @@ const App = () => {
                   understand paycheck calculator to know your employees’
                   take-home pay.
                 </div>
-                <p className="tool-link">Calculate &rarr;</p>
+                <p className="tool-link">Learn More &rarr;</p>
               </div>
               <div
                 className="tool-card"
@@ -128,12 +128,11 @@ const App = () => {
               >
                 <div className="tool-title">Organizational Chart</div>
                 <div className="tool-msg">
-                  Change Org Chart tile description to: "Need help visualizing
-                  the structure of your business? Use our organizational chart
-                  tool to bring employees together and make your organization
-                  more connected.
+                  Need help visualizing the structure of your business? Use our
+                  organizational chart tool to bring employees together and make
+                  your organization more connected.
                 </div>
-                <p className="tool-link">Org Chart &rarr;</p>
+                <p className="tool-link">Learn More &rarr;</p>
               </div>
               {/* <div className="tool-card">
                 <div className="tool-title">Contract Generator</div>

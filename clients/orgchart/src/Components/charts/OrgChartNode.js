@@ -70,6 +70,10 @@ const OrgChartNode = ({
     }
   }, [editModalShow, addModalShow, deletePopupShow]);
 
+  // const handleClickNode = () => {
+  //   setEditModalShow(true);
+  // };
+
   return (
     <div>
       <div className="oc-inner">
@@ -78,7 +82,10 @@ const OrgChartNode = ({
             <button
               className="collapse-expand"
               data-html2canvas-ignore="true"
-              onClick={() => collapseNode(nodeData.id)}
+              onClick={(evt) => {
+                evt.stopPropagation();
+                collapseNode(nodeData.id);
+              }}
             >
               <i class="fas fa-chevron-up"></i>
             </button>
@@ -92,7 +99,10 @@ const OrgChartNode = ({
             <button
               data-html2canvas-ignore="true"
               className="collapse-expand"
-              onClick={() => expandNode(nodeData.id)}
+              onClick={(evt) => {
+                evt.stopPropagation();
+                expandNode(nodeData.id);
+              }}
             >
               <i class="fas fa-chevron-down"></i>
             </button>
@@ -148,6 +158,9 @@ const OrgChartNode = ({
         )}
         {!chart.collapsedChart && (
           <Dropdown
+            onClick={(evt) => {
+              evt.stopPropagation();
+            }}
             className="more-options-dropdown"
             data-html2canvas-ignore="true"
           >

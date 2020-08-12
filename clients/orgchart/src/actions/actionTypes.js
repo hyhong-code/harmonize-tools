@@ -38,3 +38,6 @@ export const USER_LOGOUT = "USER_LOGOUT";
 // Editng
 export const EDITING_STARTED = "EDITING_STARTED";
 export const EDITING_ENDED = "EDITING_ENDED";
+
+// Steps
+export const STEP_SET = "STEP_SET";

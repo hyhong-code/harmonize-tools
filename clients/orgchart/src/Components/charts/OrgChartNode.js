@@ -70,13 +70,19 @@ const OrgChartNode = ({
     }
   }, [editModalShow, addModalShow, deletePopupShow]);
 
-  // const handleClickNode = () => {
-  //   setEditModalShow(true);
-  // };
+  const handleClickNode = () => {
+    setEditModalShow(true);
+  };
 
   return (
     <div>
-      <div className="oc-inner">
+      <div
+        className="oc-inner"
+        onClick={(evt) => {
+          evt.stopPropagation();
+          handleClickNode();
+        }}
+      >
         {nodeData.children && nodeData.children.length ? (
           <ToolTip message="Collapse" delay={{ show: 150, hide: 250 }}>
             <button
@@ -112,7 +118,8 @@ const OrgChartNode = ({
           <div
             data-html2canvas-ignore="true"
             className="onclick-add add-top"
-            onClick={() => {
+            onClick={(evt) => {
+              evt.stopPropagation();
               setAddMode("HEAD");
               setAddModalShow(true);
             }}
@@ -124,7 +131,8 @@ const OrgChartNode = ({
           <div
             data-html2canvas-ignore="true"
             className="onclick-add add-bottom"
-            onClick={() => {
+            onClick={(evt) => {
+              evt.stopPropagation();
               setAddMode("DIRECT_REPORT");
               setAddModalShow(true);
             }}
@@ -136,7 +144,8 @@ const OrgChartNode = ({
           <div
             data-html2canvas-ignore="true"
             className="onclick-add add-left"
-            onClick={() => {
+            onClick={(evt) => {
+              evt.stopPropagation();
               setAddMode("COLLEAGUE_LFET");
               setAddModalShow(true);
             }}
@@ -148,7 +157,8 @@ const OrgChartNode = ({
           <div
             data-html2canvas-ignore="true"
             className="onclick-add add-right"
-            onClick={() => {
+            onClick={(evt) => {
+              evt.stopPropagation();
               setAddMode("COLLEAGUE_RIGHT");
               setAddModalShow(true);
             }}
@@ -173,9 +183,9 @@ const OrgChartNode = ({
               </Dropdown.Toggle>
             </ManualToggleToolTip>
             <Dropdown.Menu className="more-options-dropdown-menu">
-              <Dropdown.Item as="button" onClick={() => setEditModalShow(true)}>
+              {/* <Dropdown.Item as="button" onClick={() => setEditModalShow(true)}>
                 Edit employee
-              </Dropdown.Item>
+              </Dropdown.Item> */}
               {nodeData.id && (
                 <Dropdown.Item
                   as="button"

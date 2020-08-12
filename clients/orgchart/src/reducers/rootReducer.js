@@ -5,6 +5,7 @@ import chart from "./orgChartReducer";
 import sideDrawer from "./sideDrawerReducer";
 import user from "./userReducer";
 import isEditing from "./editingReducer";
+import step from "./stepsReducer";
 
 export default combineReducers({
   template,
@@ -12,4 +13,5 @@ export default combineReducers({
   sideDrawer,
   user,
   isEditing,
+  step,
 });

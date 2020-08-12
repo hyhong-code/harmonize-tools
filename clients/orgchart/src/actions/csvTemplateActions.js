@@ -7,6 +7,7 @@ import {
   RESET_TEMPLATE,
   TEMPLATE_ERROR_CLEARED,
 } from "./actionTypes";
+import { setStep } from "../actions/stepActions";
 
 /**
  * @function getTemplate
@@ -19,6 +20,7 @@ export const getTemplate = () => async (dispatch) => {
     dispatch({
       type: TEMPLATE_DOWNLOADED,
     });
+    dispatch(setStep(2));
     return true;
   } catch (error) {
     console.error(error);

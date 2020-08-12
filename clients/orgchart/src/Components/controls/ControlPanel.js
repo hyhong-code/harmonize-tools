@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
+import { setStep } from "../../actions/stepActions";
 import { getTemplate, resetTemplate } from "../../actions/csvTemplateActions";
 import { uploadOrgData } from "../../actions/orgChartActions";
 import {
@@ -21,9 +22,9 @@ const ControlPanel = ({
   uploadOrgData,
   closeSideDrawer,
   openSideDrawer,
+  step,
+  setStep,
 }) => {
-  const [step, setStep] = useState(1);
-
   return (
     <div className={`control-panel ${!sideDrawer ? "side-drawer-close" : ""}`}>
       {/* <div className={`control-panel ${!sideDrawer ? "" : "side-drawer-close"}`}> */}
@@ -53,9 +54,10 @@ const ControlPanel = ({
   );
 };
 
-const mapStateToProps = ({ template, sideDrawer }) => ({
+const mapStateToProps = ({ template, sideDrawer, step }) => ({
   template,
   sideDrawer,
+  step,
 });
 
 export default connect(mapStateToProps, {
@@ -64,4 +66,5 @@ export default connect(mapStateToProps, {
   uploadOrgData,
   closeSideDrawer,
   openSideDrawer,
+  setStep,
 })(ControlPanel);

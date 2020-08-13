@@ -16,15 +16,15 @@ const StepOne = ({ template, getTemplate, setStep }) => {
           <span className="st-1 text-center">
             1. Download <br /> <span>Template</span>
           </span>
-          <span className="st-2 ">2. Edit & Save</span>
-          <span className="st-3">3. Upload File</span>
-          <span className="st-4">4. Generate Chart</span>
+          <span className="st-2">2. Edit & Save</span>
+          {/* <span className="st-3">3. Upload File</span> */}
+          <span className="st-4">3. Generate Chart</span>
         </div>
         <div className="step-one-progress">
           <div className="line"></div>
           <div className="milestone active ms-1"></div>
           <div className="milestone ms-2"></div>
-          <div className="milestone ms-3"></div>
+          {/* <div className="milestone ms-3"></div> */}
           <div className="milestone ms-4"></div>
         </div>
         <h2 className="step-one-heading">STEP 1</h2>

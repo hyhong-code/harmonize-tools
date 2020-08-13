@@ -30,6 +30,10 @@
         margin-left: 0.6rem;
       }
     }
+
+    .st-2 {
+      margin-left: 2.5rem;
+    }
   }
 
   .step-one-progress {
@@ -85,12 +89,12 @@
       }
 
       &.ms-2 {
-        left: 6.4rem;
+        left: 10rem;
       }
 
-      &.ms-3 {
-        left: 13.4rem;
-      }
+      // &.ms-3 {
+      //   left: 13.4rem;
+      // }
 
       &.ms-4 {
         left: 19.8rem;

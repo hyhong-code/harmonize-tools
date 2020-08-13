@@ -30,6 +30,10 @@
         margin-left: 0.6rem;
       }
     }
+
+    .st-2 {
+      margin-left: 2.5rem;
+    }
   }
 
   .step-three-progress {
@@ -84,12 +88,12 @@
         left: 0;
       }
 
-      &.ms-2 {
-        left: 6.4rem;
-      }
+      // &.ms-2 {
+      //   left: 6.4rem;
+      // }
 
       &.ms-3 {
-        left: 13.4rem;
+        left: 10rem;
       }
 
       &.ms-4 {
@@ -108,7 +112,7 @@
   .step-three-msg {
     font-size: 1rem;
     color: $dark-text;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
 
     span {
       font-weight: bold;
@@ -117,6 +121,23 @@
     &-2 {
       @extend .step-three-msg;
       margin-bottom: 3rem;
+    }
+  }
+
+  .info-icon {
+    text-align: center;
+    margin-bottom: 0.5rem;
+
+    .fas {
+      padding: 0.5rem;
+      font-size: 1.5rem;
+      color: $main-color;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 

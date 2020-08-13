@@ -45,11 +45,11 @@ const ControlPanel = ({
           setStep={setStep}
         />
       )}
-      {sideDrawer && step === 2 && <StepTwo setStep={setStep} />}
-      {sideDrawer && step === 3 && (
+      {/* {sideDrawer && step === 2 && <StepTwo setStep={setStep} />} */}
+      {sideDrawer && step === 2 && (
         <StepThree setStep={setStep} uploadOrgData={uploadOrgData} />
       )}
-      {sideDrawer && step === 4 && <StepFour setStep={setStep} />}
+      {sideDrawer && step === 3 && <StepFour setStep={setStep} />}
     </div>
   );
 };

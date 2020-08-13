@@ -6,9 +6,11 @@ import StepThreeDropFile from "./StepThreeDropFile";
 import "./StepThree.scss";
 import ToolTip from "../widgets/ToolTip";
 import { clearCsvError } from "../../actions/csvTemplateActions";
+import CsvModal from "./CsvModal";
 
 const StepThree = ({ setStep, uploadOrgData, template, clearCsvError }) => {
   const [file, setFile] = useState("");
+  const [csvModalShow, setCsvModalShow] = useState(false);
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => {
@@ -18,7 +20,7 @@ const StepThree = ({ setStep, uploadOrgData, template, clearCsvError }) => {
 
   const handleUpload = async (file) => {
     if (await uploadOrgData(file)) {
-      setStep(4);
+      setStep(3);
     }
   };
 
@@ -37,8 +39,8 @@ const StepThree = ({ setStep, uploadOrgData, template, clearCsvError }) => {
             1. Download <br /> <span>Template</span>
           </span>
           <span className="st-2 ">2. Edit & Save</span>
-          <span className="st-3">3. Upload File</span>
-          <span className="st-4">4. Generate Chart</span>
+          {/* <span className="st-3">3. Upload File</span> */}
+          <span className="st-4">3. Generate Chart</span>
         </div>
         <div className="step-three-progress">
           <div className="line"></div>
@@ -48,20 +50,27 @@ const StepThree = ({ setStep, uploadOrgData, template, clearCsvError }) => {
               onClick={() => setStep(1)}
             ></div>
           </ToolTip>
-          <ToolTip message="Back to step 2" delay={{ show: 150, hide: 100 }}>
+          {/* <ToolTip message="Back to step 2" delay={{ show: 150, hide: 100 }}>
             <div
               className="milestone finished ms-2"
               onClick={() => setStep(2)}
             ></div>
-          </ToolTip>
+          </ToolTip> */}
           <div className="milestone active ms-3"></div>
           <div className="milestone ms-4"></div>
         </div>
-        <h2 className="step-three-heading">STEP 3</h2>
+        <h2 className="step-three-heading">STEP 2</h2>
 
         <p className="step-three-msg">
-          Upload your .CSV file below to populate your organizational chart.
+          Enter your employee information & save your updated template as a .CSV
+          file. Upload your file below.
         </p>
+        <div className="info-icon">
+          <i
+            className="fas fa-info-circle"
+            onClick={() => setCsvModalShow(true)}
+          ></i>
+        </div>
 
         <StepThreeDropFile
           getInputProps={getInputProps}
@@ -99,7 +108,7 @@ const StepThree = ({ setStep, uploadOrgData, template, clearCsvError }) => {
             className="step-three-action-back"
             onClick={() => {
               clearCsvError();
-              setStep(2);
+              setStep(1);
             }}
           >
             Back
@@ -118,6 +127,10 @@ const StepThree = ({ setStep, uploadOrgData, template, clearCsvError }) => {
           )}
         </div>
       </div>
+      <CsvModal
+        show={csvModalShow}
+        handleClose={() => setCsvModalShow(false)}
+      />
     </Fragment>
   );
 };

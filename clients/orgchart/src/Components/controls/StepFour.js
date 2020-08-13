@@ -14,8 +14,8 @@ const StepFour = ({ setStep }) => {
             1. Download <br /> <span>Template</span>
           </span>
           <span className="st-2 ">2. Edit & Save</span>
-          <span className="st-3">3. Upload File</span>
-          <span className="st-4">4. Generate Chart</span>
+          {/* <span className="st-3">3. Upload File</span> */}
+          <span className="st-4">3. Generate Chart</span>
         </div>
         <div className="step-four-progress">
           <div className="line"></div>
@@ -25,13 +25,13 @@ const StepFour = ({ setStep }) => {
               onClick={() => setStep(1)}
             ></div>
           </ToolTip>
-          <ToolTip message="Back to step 2" delay={{ show: 150, hide: 100 }}>
+          {/* <ToolTip message="Back to step 2" delay={{ show: 150, hide: 100 }}>
             <div
               className="milestone finished ms-2"
               onClick={() => setStep(2)}
             ></div>
-          </ToolTip>
-          <ToolTip message="Back to step 3" delay={{ show: 150, hide: 100 }}>
+          </ToolTip> */}
+          <ToolTip message="Back to step 2" delay={{ show: 150, hide: 100 }}>
             <div
               className="milestone finished ms-3"
               onClick={() => setStep(3)}
@@ -47,11 +47,7 @@ const StepFour = ({ setStep }) => {
         <p className="step-four-msg">
           Your chart is now viewable on the right-hand side of the screen.
         </p>
-        <a
-          href="/"
-          rel="noopener noreferrer"
-          className="harmonize-link"
-        >
+        <a href="/" rel="noopener noreferrer" className="harmonize-link">
           Explore other HR tools <i class="fas fa-arrow-right"></i>
         </a>
         <hr />
@@ -61,7 +57,7 @@ const StepFour = ({ setStep }) => {
         <button
           className="step-four-action-back"
           onClick={() => {
-            setStep(3);
+            setStep(2);
           }}
         >
           Back

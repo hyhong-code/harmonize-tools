@@ -41,3 +41,8 @@ export const EDITING_ENDED = "EDITING_ENDED";
 
 // Steps
 export const STEP_SET = "STEP_SET";
+
+// Tooltip
+export const TOOLTIP_OPEN = "TOOLTIP_OPEN";
+export const TOOLTIP_CLOSE = "TOOLTIP_CLOSE";
+export const TOOLTIP_STEP_SET = "TOOLTIP_STEP_SET";

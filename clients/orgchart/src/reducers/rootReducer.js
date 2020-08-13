@@ -6,6 +6,7 @@ import sideDrawer from "./sideDrawerReducer";
 import user from "./userReducer";
 import isEditing from "./editingReducer";
 import step from "./stepsReducer";
+import tooltip from "./tooltipReducer";
 
 export default combineReducers({
   template,
@@ -14,4 +15,5 @@ export default combineReducers({
   user,
   isEditing,
   step,
+  tooltip,
 });

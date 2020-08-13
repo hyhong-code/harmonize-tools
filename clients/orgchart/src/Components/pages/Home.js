@@ -7,6 +7,8 @@ import { loadUser } from "../../actions/userActions";
 import Topbar from "../layout/Topbar";
 import ControlPanel from "../controls/ControlPanel";
 import OrgChart from "../charts/OrgChart";
+import Checklist from "../tooltips/Checklist";
+import Guide from "../tooltips/Guide";
 
 const Home = ({ user, loadUser }) => {
   useEffect(() => {
@@ -24,6 +26,8 @@ const Home = ({ user, loadUser }) => {
       <ControlPanel />
       <Container fluid>
         <OrgChart />
+        <Checklist />
+        <Guide />
       </Container>
     </div>
   );

@@ -1,0 +1,53 @@
+@import "../../App.scss";
+
+.checklist {
+  position: absolute;
+  width: 13rem;
+  background: $white;
+  border-radius: 5px;
+  box-shadow: 0 4px 7px rgba(#000, 0.2);
+  right: 2rem;
+  bottom: 2rem;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .header {
+    width: 100%;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: $main-color;
+    color: $white;
+    margin-bottom: 0.5rem;
+
+    h3 {
+      font-size: 1.3rem;
+      text-align: center;
+    }
+  }
+
+  .options-container {
+    .option-text {
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      margin-bottom: 0.5rem;
+      opacity: 0.3;
+
+      &.active {
+        opacity: 1;
+        font-weight: 700;
+      }
+
+      &.cross {
+        text-decoration: line-through;
+      }
+
+      &:hover {
+        transform: translateY(-1px);
+      }
+    }
+  }
+}

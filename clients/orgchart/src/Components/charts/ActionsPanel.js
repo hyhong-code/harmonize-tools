@@ -16,6 +16,7 @@ import ToolTip from "../widgets/ToolTip";
 import { openSideDrawer } from "../../actions/sideDrawerAction";
 import SaveChartPopup from "./SaveChartPopup";
 import useDownload from "../../hooks/useDownload";
+import { openToolTips } from "../../actions/tooltipActions";
 import "./ActionsPanel.scss";
 
 const EmployeeInfoPanel = ({
@@ -29,6 +30,7 @@ const EmployeeInfoPanel = ({
   openSideDrawer,
   currentChartId,
   toCSV,
+  openToolTips,
 }) => {
   const { handleDownload } = useDownload();
   const [showWidget, setShowWidget] = useState(false);
@@ -117,7 +119,6 @@ const EmployeeInfoPanel = ({
           >
             <i class="fas fa-file-image"></i> Download as image
           </ListGroup.Item>
-
           {/* <ToolTip
             message="Export as JPG, PDF, or CSV"
             placement="left"
@@ -182,7 +183,15 @@ const EmployeeInfoPanel = ({
                 </ListGroup.Item>
               </ToolTip>
             </Fragment>
-          )}
+          )}{" "}
+          <ListGroup.Item
+            className="action-item"
+            as="button"
+            action
+            onClick={openToolTips}
+          >
+            <i class="far fa-play-circle"></i> Getting Started
+          </ListGroup.Item>
         </ListGroup>
       </div>
       <SaveChartPopup
@@ -220,4 +229,5 @@ export default connect(mapStateToProps, {
   openSideDrawer,
   updateChart,
   toCSV,
+  openToolTips,
 })(EmployeeInfoPanel);

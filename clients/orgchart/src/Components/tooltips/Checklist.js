@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import "./Checklist.scss";
-import { setToolTipSteps } from "../../actions/tooltipActions";
+import { setToolTipSteps, closeToolTips } from "../../actions/tooltipActions";
 
 const options = [
   { text: "1. Import data", step: 1 },
@@ -18,9 +18,17 @@ const Checklist = () => {
   console.log(tooltip.step);
 
   return (
-    <div className="checklist">
+    <div className={`checklist ${tooltip.open ? "show" : ""}`}>
       <div className="header">
-        <h3>Getting Started</h3>
+        <h3>
+          <i class="far fa-play-circle"></i> Getting Started
+        </h3>
+        <div className="close-btn">
+          <i
+            className="fas fa-times"
+            onClick={() => dispatch(closeToolTips())}
+          ></i>
+        </div>
       </div>
       <div className="options-container">
         {options.map((option, idx) => (

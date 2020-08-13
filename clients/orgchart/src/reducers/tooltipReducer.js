@@ -17,6 +17,9 @@ export default (state = INITIAL_STATE, action) => {
     case TOOLTIP_CLOSE:
       return { ...state, open: false };
     case TOOLTIP_STEP_SET:
+      if (payload < 1 || payload > 5) {
+        return state;
+      }
       return { ...state, step: payload };
     default:
       return state;

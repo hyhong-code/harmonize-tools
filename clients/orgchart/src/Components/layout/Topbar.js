@@ -34,7 +34,7 @@ const Topbar = ({
       </div> */}
         <div className="">
           <h1 className="heading">ORGANIZATIONAL CHART TOOL</h1>
-          <p className="sub-heading">
+          {/* <p className="sub-heading">
             Begin{" "}
             <span onClick={() => setNewChartPopupShow(true)}>
               editing your chart
@@ -43,7 +43,7 @@ const Topbar = ({
             <button className="import-btn" onClick={() => openSideDrawer()}>
               IMPORT
             </button>
-          </p>
+          </p> */}
         </div>
 
         <div className="d-flex">

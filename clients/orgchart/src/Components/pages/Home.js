@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Container } from "react-bootstrap";
 import ReactGA from "react-ga";
 
+import useSetGuide from "../../hooks/useSetGuide";
 import { loadUser } from "../../actions/userActions";
 import Topbar from "../layout/Topbar";
 import ControlPanel from "../controls/ControlPanel";
@@ -14,6 +15,8 @@ const Home = ({ user, loadUser }) => {
   useEffect(() => {
     loadUser();
   }, []);
+
+  useSetGuide();
 
   useEffect(() => {
     ReactGA.initialize("UA-175053486-1");

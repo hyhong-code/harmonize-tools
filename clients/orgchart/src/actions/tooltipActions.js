@@ -7,6 +7,7 @@ export const openToolTips = () => (dispatch) => {
 };
 
 export const closeToolTips = () => (dispatch) => {
+  localStorage.setItem("isGuided", "true");
   dispatch({
     type: TOOLTIP_CLOSE,
   });

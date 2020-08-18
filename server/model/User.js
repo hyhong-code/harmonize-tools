@@ -1,21 +1,36 @@
 const mongoose = require("mongoose");
+const passportLocalMongoose = require("passport-local-mongoose");
 
 const userSchema = new mongoose.Schema({
   googleId: {
     type: String,
-    requred: [true, "A google id is required"],
-    unique: [true, "Google id already taken"],
+    unique: true,
+  },
+  linkedInId: {
+    type: String,
+    unique: true,
+  },
+  facebookId: {
+    type: String,
+    unique: true,
+  },
+  twitterId: {
+    type: String,
+    unique: true,
   },
   name: {
     type: String,
     trim: true,
-    required: [true, "A name is required"],
   },
+
   email: {
     type: String,
-    required: [true, "An email is requried"],
-    unique: [true, "This email is already taken"],
+    unique: true,
   },
+  password: String,
+  resetPasswordToken: String,
+  resetPasswordExpires: Date,
+
   photo: {
     type: String,
     default:
@@ -23,4 +38,5 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+userSchema.plugin(passportLocalMongoose);
 module.exports = mongoose.model("User", userSchema);

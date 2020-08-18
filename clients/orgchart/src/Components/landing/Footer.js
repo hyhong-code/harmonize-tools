@@ -94,6 +94,15 @@ const Footer = () => {
                         <a
                           target="_blank"
                           rel="noopener noreferrer"
+                          href="https://www.harmonizehq.com/"
+                        >
+                          harmonizehq.com
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
                           href="https://www.harmonizehq.com/attendancebot.html"
                         >
                           AttendanceBot

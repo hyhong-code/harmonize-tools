@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import ReactGA from "react-ga";
 
 import Logo from "./assets/logo.png";
+import Footer from "./components/Footer";
 import "./Home.scss";
 
 const Home = () => {
@@ -27,8 +28,12 @@ const Home = () => {
       <header>
         <nav className="navbar">
           <div className="container">
-            <a href="" className="navbar-brand">
-              <img src={Logo} alt="" /> Harmonize
+            <a
+              href="https://www.harmonizehq.com/"
+              rel="noopener noreferrer"
+              className="navbar-brand"
+            >
+              <img src={Logo} alt="logo" /> Harmonize
             </a>
             <ul>
               <li>
@@ -160,6 +165,7 @@ const Home = () => {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

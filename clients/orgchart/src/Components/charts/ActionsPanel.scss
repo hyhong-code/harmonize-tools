@@ -77,6 +77,14 @@
         outline: none;
       }
 
+      &.tooltip-selected {
+        border: 2px solid $main-color;
+        border-radius: 5px;
+        transform: scale(1.05);
+        font-weight: 500;
+        z-index: 100;
+      }
+
       &.disabled-item {
         cursor: default;
         background-color: initial;

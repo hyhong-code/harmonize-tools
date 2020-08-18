@@ -29,7 +29,7 @@ const Home = ({ user, loadUser }) => {
       <ControlPanel />
       <Container fluid>
         <OrgChart />
-        <Checklist />
+        {/* <Checklist /> */}
         <Guide />
       </Container>
     </div>

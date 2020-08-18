@@ -23,7 +23,7 @@ const Guide = () => {
         <div className="content">
           <h4>Create from scratch</h4>
           <p>
-            You can also create your chart from a blank slate. Use the plus
+            You can also create your chart from a blank slate. Use the (+)
             buttons on the sides of an employee's card to add new employees.
           </p>
         </div>
@@ -57,7 +57,10 @@ const Guide = () => {
           <div className="start">
             <button
               className="step-one-continue"
-              onClick={() => dispatch(closeToolTips())}
+              onClick={() => {
+                dispatch(closeToolTips());
+                dispatch(setToolTipSteps(1));
+              }}
             >
               I'm Ready
             </button>
@@ -79,7 +82,13 @@ const Guide = () => {
           <i className="fas fa-chevron-right"></i>
         </div>
         {tooltip.step !== 5 && (
-          <button className="skip" onClick={() => dispatch(closeToolTips())}>
+          <button
+            className="skip"
+            onClick={() => {
+              dispatch(closeToolTips());
+              dispatch(setToolTipSteps(1));
+            }}
+          >
             Skip the tour
           </button>
         )}

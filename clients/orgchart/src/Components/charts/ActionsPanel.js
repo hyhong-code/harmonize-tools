@@ -31,6 +31,7 @@ const EmployeeInfoPanel = ({
   currentChartId,
   toCSV,
   openToolTips,
+  tooltip,
 }) => {
   const { handleDownload } = useDownload();
   const [showWidget, setShowWidget] = useState(false);
@@ -83,12 +84,26 @@ const EmployeeInfoPanel = ({
             className="action-item"
             as="button"
             action
+            onClick={openToolTips}
+          >
+            <i class="far fa-play-circle"></i> Getting Started
+          </ListGroup.Item>
+          <ListGroup.Item
+            className={`action-item ${
+              tooltip.open && tooltip.step === 1 ? "tooltip-selected" : ""
+            }`}
+            as="button"
+            action
             onClick={openSideDrawer}
           >
             <i class="mr-1 fas fa-file-csv"></i> Import data from CSV
           </ListGroup.Item>
           <ListGroup.Item
-            className="action-item"
+            className={`action-item ${
+              tooltip.open && (tooltip.step === 2 || tooltip.step === 3)
+                ? "tooltip-selected"
+                : ""
+            }`}
             as="button"
             action
             onClick={() => setNewChartPopupShow(true)}
@@ -97,7 +112,9 @@ const EmployeeInfoPanel = ({
           </ListGroup.Item>
           <ListGroup.Item
             onClick={() => handleExport("CSV")}
-            className="action-item"
+            className={`action-item ${
+              tooltip.open && tooltip.step === 4 ? "tooltip-selected" : ""
+            }`}
             as="button"
             action
           >
@@ -105,7 +122,9 @@ const EmployeeInfoPanel = ({
           </ListGroup.Item>
           <ListGroup.Item
             onClick={() => handleExport("PDF")}
-            className="action-item"
+            className={`action-item ${
+              tooltip.open && tooltip.step === 4 ? "tooltip-selected" : ""
+            }`}
             as="button"
             action
           >
@@ -113,7 +132,9 @@ const EmployeeInfoPanel = ({
           </ListGroup.Item>
           <ListGroup.Item
             onClick={() => handleExport("JPG")}
-            className="action-item"
+            className={`action-item ${
+              tooltip.open && tooltip.step === 4 ? "tooltip-selected" : ""
+            }`}
             as="button"
             action
           >
@@ -137,7 +158,9 @@ const EmployeeInfoPanel = ({
             <Fragment>
               <ListGroup.Item
                 onClick={handleLoadCharts}
-                className="action-item"
+                className={`action-item ${
+                  tooltip.open && tooltip.step === 5 ? "tooltip-selected" : ""
+                }`}
                 as="button"
                 action
               >
@@ -146,7 +169,9 @@ const EmployeeInfoPanel = ({
 
               <ListGroup.Item
                 onClick={handleSave}
-                className="action-item"
+                className={`action-item ${
+                  tooltip.open && tooltip.step === 5 ? "tooltip-selected" : ""
+                }`}
                 as="button"
                 action
               >
@@ -161,7 +186,9 @@ const EmployeeInfoPanel = ({
                 placement="left"
               >
                 <ListGroup.Item
-                  className="action-item disabled-item"
+                  className={`action-item disabled-item ${
+                    tooltip.open && tooltip.step === 5 ? "tooltip-selected" : ""
+                  }`}
                   as="button"
                   action
                 >
@@ -175,7 +202,9 @@ const EmployeeInfoPanel = ({
                 placement="left"
               >
                 <ListGroup.Item
-                  className="action-item disabled-item"
+                  className={`action-item disabled-item ${
+                    tooltip.open && tooltip.step === 5 ? "tooltip-selected" : ""
+                  }`}
                   as="button"
                   action
                 >
@@ -184,14 +213,6 @@ const EmployeeInfoPanel = ({
               </ToolTip>
             </Fragment>
           )}{" "}
-          <ListGroup.Item
-            className="action-item"
-            as="button"
-            action
-            onClick={openToolTips}
-          >
-            <i class="far fa-play-circle"></i> Getting Started
-          </ListGroup.Item>
         </ListGroup>
       </div>
       <SaveChartPopup
@@ -216,10 +237,16 @@ const EmployeeInfoPanel = ({
   );
 };
 
-const mapStateToProps = ({ sideDrawer, user, chart: { currentChartId } }) => ({
+const mapStateToProps = ({
+  sideDrawer,
+  user,
+  chart: { currentChartId },
+  tooltip,
+}) => ({
   sideDrawer,
   user,
   currentChartId,
+  tooltip,
 });
 
 export default connect(mapStateToProps, {

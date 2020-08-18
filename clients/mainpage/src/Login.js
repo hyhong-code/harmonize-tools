@@ -32,6 +32,21 @@ const Login = () => {
             <i class="fab fa-google"></i> Sign in with Google
           </button>
         </div>
+        <div className="form-group">
+          <button type="button" className="button-linkedin">
+            <i class="fab fa-linkedin-in"></i> Sign in with LinkedIn
+          </button>
+        </div>
+        <div className="form-group">
+          <button type="button" className="button-google">
+            <i class="fab fa-facebook"></i> Sign in with Facebook
+          </button>
+        </div>
+        <div className="form-group">
+          <button type="button" className="button-twitter">
+            <i class="fab fa-twitter"></i> Sign in with Twitter
+          </button>
+        </div>
         <small>
           Don't have an account? <Link to="/signup">Sign up &rarr;</Link>
         </small>

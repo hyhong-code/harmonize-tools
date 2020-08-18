@@ -31,6 +31,21 @@ const Signup = () => {
           <hr />
         </div>
         <div className="form-group">
+          <button type="button" className="button-linkedin">
+            <i class="fab fa-linkedin-in"></i> Sign in with LinkedIn
+          </button>
+        </div>
+        <div className="form-group">
+          <button type="button" className="button-google">
+            <i class="fab fa-facebook"></i> Sign in with Facebook
+          </button>
+        </div>
+        <div className="form-group">
+          <button type="button" className="button-twitter">
+            <i class="fab fa-twitter"></i> Sign in with Twitter
+          </button>
+        </div>
+        <div className="form-group">
           <button type="button" className="button-google">
             <i class="fab fa-google"></i> Sign in with Google
           </button>

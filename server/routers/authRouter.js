@@ -25,9 +25,11 @@ router.post("/register", async (req, res) => {
       try {
         const newUser = new User(body);
         await newUser.save();
+
         // login
         req.logIn(newUser, function () {
           // -> after login, redirect to previous page
+          console.log("sdjfdslsj");
           res.redirect("/orgchart/app");
         });
       } catch (error) {
@@ -218,7 +220,7 @@ router.get("/google/callback", passport.authenticate("google"), (req, res) => {
   if (process.env.NODE_ENV !== "production") {
     return res.redirect("http://localhost:3000/app");
   }
-  return res.redirect("/app");
+  return res.redirect("/orgchart/app");
 });
 
 router.get("/linkedin", passport.authenticate("linkedin"));
@@ -227,9 +229,9 @@ router.get(
   passport.authenticate("linkedin"),
   (req, res) => {
     if (process.env.NODE_ENV !== "production") {
-      return res.redirect("http://localhost:3000/app");
+      return res.redirect("http://localhost:3000/orgchart/app");
     }
-    return res.redirect("/app");
+    return res.redirect("/orgchart/app");
   }
 );
 
@@ -239,9 +241,9 @@ router.get(
   passport.authenticate("facebook"),
   (req, res) => {
     if (process.env.NODE_ENV !== "production") {
-      return res.redirect("http://localhost:3000/app");
+      return res.redirect("http://localhost:3000/orgchart/app");
     }
-    return res.redirect("/app");
+    return res.redirect("/orgchart/app");
   }
 );
 
@@ -251,9 +253,9 @@ router.get(
   passport.authenticate("twitter"),
   (req, res) => {
     if (process.env.NODE_ENV !== "production") {
-      return res.redirect("http://localhost:3000/app");
+      return res.redirect("http://localhost:3000/orgchart/app");
     }
-    return res.redirect("/app");
+    return res.redirect("/orgchart/app");
   }
 );
 

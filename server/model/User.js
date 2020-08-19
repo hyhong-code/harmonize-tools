@@ -4,28 +4,26 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const userSchema = new mongoose.Schema({
   googleId: {
     type: String,
-    unique: true,
+    // unique: true,
   },
   linkedInId: {
     type: String,
-    unique: true,
+    // unique: true,
   },
   facebookId: {
     type: String,
-    unique: true,
+    // unique: true,
   },
   twitterId: {
     type: String,
-    unique: true,
+    // unique: true,
   },
   name: {
     type: String,
-    trim: true,
+    // trim: true,
   },
-
   email: {
     type: String,
-    unique: true,
   },
   password: String,
   resetPasswordToken: String,

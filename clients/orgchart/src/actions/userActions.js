@@ -29,6 +29,6 @@ export const login = () => (dispatch, getState) => {
   localStorage.setItem("chart", JSON.stringify(getState().chart.currentChart));
   window.location =
     process.env.NODE_ENV === "production"
-      ? "/api/v1/auth/google"
-      : "http://localhost:5000/api/v1/auth/google";
+      ? "/api/v1/auth/twitter"
+      : "http://localhost:5000/api/v1/auth/twitter";
 };

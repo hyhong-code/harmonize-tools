@@ -53,9 +53,12 @@ const Topbar = ({
                 <i class="fas fa-sign-out-alt"></i> logout
               </button>
             ) : (
-              <button onClick={login}>
-                <i class="fab fa-google"></i> sign in with google
-              </button>
+              <Fragment>
+                <a href="/login" className="mr-2">
+                  Login
+                </a>
+                <a href="/register">Register</a>
+              </Fragment>
             )}
             <Link to="/orgchart">HOME</Link>
           </div>

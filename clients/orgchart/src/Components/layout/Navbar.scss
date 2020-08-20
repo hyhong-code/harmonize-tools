@@ -14,8 +14,10 @@ header {
     background-color: #431f85;
     height: 5rem;
     position: fixed;
+    top: 0;
     right: 0;
     left: 0;
+    z-index: 1030;
 
     .container {
       height: 100%;
@@ -88,6 +90,41 @@ header {
                   }
                 }
               }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    .navbar-custom {
+      height: 3.75rem;
+
+      .container {
+        .navbar-brand {
+          font-size: 0.75rem;
+
+          img {
+            width: 25px;
+            margin-right: 0.635rem;
+          }
+        }
+
+        ul {
+          li {
+            &:not(:first-child) {
+              margin-left: 1.25rem;
+            }
+
+            a {
+              font-size: 0.625rem;
+            }
+
+            .products-drop {
+              font-size: 0.625rem;
             }
           }
         }

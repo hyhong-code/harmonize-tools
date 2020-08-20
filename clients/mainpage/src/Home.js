@@ -63,24 +63,6 @@ const Home = () => {
                 <a
                   target="_blank"
                   rel="noreferrer"
-                  href="https://www.harmonizehq.com/about.html"
-                >
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://www.harmonizehq.com/contact.html"
-                >
-                  Contact Us
-                </a>
-              </li>
-              <li>
-                <a
-                  target="_blank"
-                  rel="noreferrer"
                   href="https://www.attendancebot.com/blog/"
                 >
                   Blog

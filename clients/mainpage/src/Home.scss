@@ -54,6 +54,9 @@ header {
   .navbar {
     background-color: #431f85;
     height: 8rem;
+    position: fixed;
+    right: 0;
+    left: 0;
 
     .container {
       display: flex;
@@ -69,13 +72,14 @@ header {
 
         img {
           display: inline-block;
-          width: 50px;
+          width: 45px;
           margin-right: 2rem;
         }
       }
 
       ul {
         display: flex;
+        margin-bottom: 0;
 
         li {
           &:not(:first-child) {
@@ -100,9 +104,9 @@ header {
             .product-dropdown {
               position: absolute;
               top: 0;
-              left: -2rem;
-              width: 22rem;
-              padding: 2rem;
+              left: -4rem;
+              width: 18rem;
+              padding: 2rem 0;
 
               .dropdown-content {
                 background-color: #fff;
@@ -133,6 +137,7 @@ header {
 }
 
 main {
+  padding-top: 8rem;
   .lead {
     .container {
       text-align: center;
@@ -212,6 +217,50 @@ main {
             transition: border 0.2s ease;
             display: inline;
           }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    .navbar {
+      height: 6rem;
+
+      .container {
+        .navbar-brand {
+          font-size: 1.2rem;
+
+          img {
+            width: 25px;
+            margin-right: 1rem;
+          }
+        }
+
+        ul {
+          li {
+            &:not(:first-child) {
+              margin-left: 2rem;
+            }
+
+            a {
+              font-size: 1rem;
+            }
+
+            .products-drop {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  main {
+    .tools {
+      .container {
+        .tools-container {
+          grid-template-columns: 1fr;
         }
       }
     }

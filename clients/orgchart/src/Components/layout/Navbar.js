@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -6,62 +6,66 @@ import "./Navbar.scss";
 import HarmonizeLogo from "../../assets/logo.png";
 
 const _Navbar = () => {
-  const docRef = useRef();
-  const [darkTheme, setDarkTheme] = useState(true);
+  const dropdownRef = useRef(null);
+  const [showDropdown, setShowDropdown] = useState(false);
 
-  useEffect(() => {
-    docRef.current = document.querySelector(".navbar");
-
-    function setNavbarBg() {
-      if (window.scrollY > 80) {
-        setDarkTheme(false);
-      } else {
-        setDarkTheme(true);
-      }
+  const navigate = (href, newTab) => {
+    const a = document.createElement("a");
+    a.href = href;
+    if (newTab) {
+      a.setAttribute("target", "_blank");
     }
-    document.addEventListener("scroll", setNavbarBg);
-    return () => document.removeEventListener("scroll", setNavbarBg);
-  }, []);
+    a.click();
+  };
 
   return (
-    <Navbar
-      fixed="top"
-      variant={darkTheme ? "dark" : "light"}
-      collapseOnSelect
-      expand="md"
-    >
-      <Container>
-        <Navbar.Brand
-          href="https://www.harmonizehq.com/"
-          target="_blank"
-          rel="noopener noreferer"
-        >
-          <img
-            src={HarmonizeLogo}
-            width="50"
-            height="50"
-            className="d-inline-block align-top"
-            alt="Harmonize Logo"
-          />
-          <h3>Harmonize</h3>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="main-navbar" />
-        <Navbar.Collapse id="main-navbar">
-          <Nav className="ml-auto">
-            <Link className="my-navlink" to="/orgchart/app">
-              Create an org chart
-            </Link>
-            <a
-              className="my-navlink"
-              href="/"
-              rel="noopener noreferrer"
-            >
-              More HR Tools
-            </a>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <header>
+      <nav className="navbar-custom">
+        <div className="container">
+          <a
+            href="https://www.harmonizehq.com/"
+            rel="noopener noreferrer"
+            className="navbar-brand"
+          >
+            <img src={HarmonizeLogo} alt="logo" /> Harmonize
+          </a>
+          <ul>
+            <li>
+              <button
+                className="products-drop"
+                onMouseOver={() => setShowDropdown(true)}
+                onMouseLeave={() => setShowDropdown(false)}
+              >
+                Products <i class="fas fa-chevron-down"></i>
+                {showDropdown && (
+                  <div className="product-dropdown" ref={dropdownRef}>
+                    <div className="dropdown-content">
+                      <a target="_blank" rel="noreferrer" href="/calculator">
+                        Paycheck Calculator
+                      </a>
+                      <a target="_blank" rel="noreferrer" href="/orgchart">
+                        Organization Chart
+                      </a>
+                      <a href="">Contract Generator</a>
+                      <a href="">Onboarding</a>
+                    </div>
+                  </div>
+                )}
+              </button>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.attendancebot.com/blog/"
+              >
+                Blog
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
   );
 };
 

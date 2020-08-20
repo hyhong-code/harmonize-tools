@@ -1,95 +1,96 @@
 @import "../../Custom.scss";
 
-.navbar {
-  padding-top: 1rem !important;
-  background-color: transparent;
-  height: auto;
-  transition: background-color, color, 0.3s ease;
-
-  &.navbar-light {
-    background-color: #fff;
-    box-shadow: 0 2px 3px rgba(#000, 0.15);
-
-    .container {
-      .my-navlink {
-        color: $dark-text;
-      }
-    }
+header {
+  z-index: 2000;
+  button {
+    border: none;
   }
 
-  .container {
-    .navbar-brand {
+  ul {
+    list-style: none;
+  }
+
+  .navbar-custom {
+    background-color: #431f85;
+    height: 5rem;
+    position: fixed;
+    right: 0;
+    left: 0;
+
+    .container {
+      height: 100%;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: space-between;
 
-      h3 {
-        display: inline;
-        font-size: 1.375rem;
-        font-weight: 700;
-        margin-left: 0.8rem;
-      }
-    }
+      .navbar-brand {
+        font-size: 1.25rem;
+        color: #fffcfc;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
 
-    .navbar-toggler {
-      outline: none;
-      border: none;
-      position: absolute;
-      right: 0;
-      top: 0;
-      transition: transform 0.2s ease;
-
-      &:hover {
-        transform: scale(1.03);
-      }
-
-      span {
-        font-size: 1.8rem;
-      }
-    }
-
-    .my-navlink {
-      font-weight: 700;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      color: #fff;
-      margin-left: 2.5rem;
-      text-decoration: none;
-      transition: background-color, color, 0.3s ease;
-      padding: 0.1rem 0.3rem;
-      border-radius: 5px;
-
-      &:hover {
-        background-color: #fff;
-        color: #b347ef;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .navbar {
-    .container {
-      position: relative;
-      .my-navlink {
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        display: block;
-        text-align: center;
-        margin-left: 0;
-        color: #9941f1;
-
-        &:hover {
-          color: #fff;
-          background-color: #9941f1;
+        img {
+          display: inline-block;
+          width: 45px;
+          margin-right: 1.25rem;
         }
       }
 
-      .navbar-collapse {
-        margin: 0 4.5rem;
-        background-color: #fff;
-        padding: 1rem;
-        border-radius: 10px;
+      ul {
+        display: flex;
+        margin-bottom: 0;
+
+        li {
+          &:not(:first-child) {
+            margin-left: 5rem;
+          }
+
+          a {
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #fffcfc;
+          }
+
+          .products-drop {
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #fffcfc;
+            background-color: inherit;
+            position: relative;
+
+            .product-dropdown {
+              position: absolute;
+              top: 0;
+              left: -2.5rem;
+              width: 11.25rem;
+              padding: 1.25rem 0;
+
+              .dropdown-content {
+                background-color: #fff;
+                border-radius: 5px;
+                box-shadow: 1px 3px 3px rgba(#000, 0.2);
+                cursor: default;
+                padding: 0.635rem 0.5rem.3125rem;
+
+                a {
+                  display: block;
+                  color: black;
+                  margin: 0.625rem 0;
+                  font-weight: 700;
+                  text-align: center;
+                  transition: 0.2s ease;
+
+                  &:hover {
+                    color: #431f85;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -17,7 +17,7 @@ const Landing = ({ history }) => {
   return (
     <section className="landing">
       <Navbar />
-      <Header />
+      {/* <Header /> */}
       <Showcase history={history} />
       <Features />
       <Footer />

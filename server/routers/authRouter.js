@@ -60,6 +60,7 @@ router.get("/logout", (req, res) => {
   req.logout();
   res.status(200).json({ status: "success" });
 });
+
 router.get("/user", (req, res) => {
   if (!req.user) {
     return res

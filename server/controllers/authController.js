@@ -17,6 +17,7 @@ exports.signup = async (req, res, next) => {
     const token = user.generateJwtToken();
     res.status(201).json({ token });
   } catch (e) {
+    console.error(e);
     if (e.code === 400)
       return res.status(400).json({
         msg:

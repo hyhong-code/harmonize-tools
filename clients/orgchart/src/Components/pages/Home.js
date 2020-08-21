@@ -4,16 +4,23 @@ import { Container } from "react-bootstrap";
 import ReactGA from "react-ga";
 
 import useSetGuide from "../../hooks/useSetGuide";
-import { loadUser } from "../../actions/userActions";
+import { loadUser, loadJwtUser } from "../../actions/userActions";
 import Topbar from "../layout/Topbar";
 import ControlPanel from "../controls/ControlPanel";
 import OrgChart from "../charts/OrgChart";
 import Checklist from "../tooltips/Checklist";
 import Guide from "../tooltips/Guide";
+import setTokenHeader from "../../utils/setTokenHeader";
 
-const Home = ({ user, loadUser }) => {
+const Home = ({ user, loadUser, loadJwtUser }) => {
   useEffect(() => {
-    loadUser();
+    const jwtToken = localStorage.getItem("JWT_TOKEN");
+    if (jwtToken) {
+      setTokenHeader(jwtToken);
+      loadJwtUser();
+    } else {
+      loadUser();
+    }
   }, []);
 
   useSetGuide();
@@ -38,4 +45,4 @@ const Home = ({ user, loadUser }) => {
 
 const mapStateToProps = ({ user }) => ({ user });
 
-export default connect(mapStateToProps, { loadUser })(Home);
+export default connect(mapStateToProps, { loadUser, loadJwtUser })(Home);

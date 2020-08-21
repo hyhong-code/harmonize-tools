@@ -32,7 +32,7 @@ const Signup = () => {
     evt.preventDefault();
     const url =
       process.env.NODE_ENV === "production"
-        ? "/api/v1/auth/login"
+        ? "/api/v1/auth/signup"
         : "http://localhost:5000/api/v1/auth/signup";
 
     if (!(email, password, passwordConfirm)) {

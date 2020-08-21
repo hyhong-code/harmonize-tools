@@ -6,10 +6,14 @@ const {
   updateChart,
 } = require("../controllers/chartController");
 const auth = require("../middlewares/auth");
+const jwtAuth = require("../middlewares/jwtAuth");
 
 const router = express.Router();
 
-router.route("/").get(auth, loadCharts).post(auth, createChart);
-router.route("/:id").patch(auth, updateChart);
+router
+  .route("/")
+  .get(jwtAuth, auth, loadCharts)
+  .post(jwtAuth, auth, createChart);
+router.route("/:id").patch(jwtAuth, auth, updateChart);
 
 module.exports = router;

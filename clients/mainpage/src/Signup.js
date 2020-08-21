@@ -18,6 +18,7 @@ const Signup = () => {
     password: "",
     passwordConfirm: "",
   });
+  const [err, setErr] = useState("");
 
   const { email, password, passwordConfirm } = form;
 
@@ -29,13 +30,34 @@ const Signup = () => {
   // 发送给注册页面
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    if (password === passwordConfirm) {
-      const url =
-        process.env.NODE_ENV === "production"
-          ? "/api/v1/auth/register"
-          : "http://localhost:5000/api/v1/auth/register";
+    const url =
+      process.env.NODE_ENV === "production"
+        ? "/api/v1/auth/login"
+        : "http://localhost:5000/api/v1/auth/signup";
 
-      await axios.post(url, form, config);
+    if (!(email, password, passwordConfirm)) {
+      setErr("Email, password, and confirm password are required.");
+    } else if (password !== passwordConfirm) {
+      setErr("Passwords do not match.");
+    } else if (password.length < 6) {
+      setErr("Password must be at least 6 characters long.");
+    } else {
+      try {
+        const res = await axios.post(url, form, config);
+        console.log(res.data);
+        if (res.data.token) {
+          localStorage.setItem("JWT_TOKEN", res.data.token);
+          window.location = "/orgchart/app";
+        } else {
+          throw new Error();
+        }
+      } catch (error) {
+        if (error.response && error.response.data.msg) {
+          setErr(error.response.data.msg);
+        } else {
+          setErr("Something went wrong, try again later.");
+        }
+      }
     }
   };
 
@@ -78,6 +100,7 @@ const Signup = () => {
         <div className="form-group">
           <button type="submit">Sign up</button>
         </div>
+        {err && <small className="text-danger">{err}</small>}
         <div className="form-group">
           <hr />
         </div>

@@ -28,6 +28,7 @@ const OrgChartNode = ({
   expandNode,
   dragNode,
   dropNode,
+  tooltip,
 }) => {
   const [editModalShow, setEditModalShow] = useState(false);
   const [deletePopupShow, setDeletePopupShow] = useState(false);
@@ -77,7 +78,13 @@ const OrgChartNode = ({
   return (
     <div>
       <div
-        className="oc-inner"
+        className={`oc-inner ${
+          tooltip.open &&
+          (tooltip.step === 2 || tooltip.step === 3) &&
+          chart.currentChart.id === nodeData.id
+            ? "firstNode"
+            : ""
+        }`}
         onClick={(evt) => {
           evt.stopPropagation();
           handleClickNode();
@@ -230,7 +237,7 @@ const OrgChartNode = ({
   );
 };
 
-const mapStateToProps = ({ chart }) => ({ chart });
+const mapStateToProps = ({ chart, tooltip }) => ({ chart, tooltip });
 
 export default connect(mapStateToProps, {
   deleteNode,

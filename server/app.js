@@ -8,6 +8,7 @@ const cookieSession = require("cookie-session");
 const xss = require("xss-clean");
 const helmet = require("helmet");
 const hpp = require("hpp");
+const cors = require("cors");
 
 const connectDB = require("./config/db");
 const errorHandler = require("./controllers/errorController");
@@ -19,6 +20,7 @@ const app = express();
 connectDB();
 
 // Middlewares
+app.use(cors());
 app.use(helmet());
 app.use(express.json());
 app.use(fileUpload());

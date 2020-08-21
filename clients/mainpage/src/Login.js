@@ -17,6 +17,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [err, setErr] = useState("");
 
   const { email, password } = form;
 
@@ -33,7 +34,22 @@ const Login = () => {
         ? "/api/v1/auth/login"
         : "http://localhost:5000/api/v1/auth/login";
 
-    await axios.post(url, form, config);
+    if (!(email, password)) {
+      setErr("Email and password are required.");
+    } else {
+      try {
+        const res = await axios.post(url, form, config);
+        console.log(res.data);
+        if (res.data.token) {
+          localStorage.setItem("JWT_TOKEN", res.data.token);
+          window.location = "/orgchart/app";
+        } else {
+          throw new Error();
+        }
+      } catch (error) {
+        setErr("Invalid credentials.");
+      }
+    }
   };
 
   return (
@@ -66,6 +82,7 @@ const Login = () => {
         <div className="form-group">
           <button type="submit">Sign in</button>
         </div>
+        {err && <small className="text-danger">{err}</small>}
         <div className="form-group">
           <hr />
         </div>

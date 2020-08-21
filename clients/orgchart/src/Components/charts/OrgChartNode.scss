@@ -14,6 +14,10 @@
   justify-content: center;
   position: relative;
 
+  &.firstNode {
+    border: 2px solid $main-color;
+  }
+
   .more-options-dropdown {
     position: absolute;
     right: 0.6rem;

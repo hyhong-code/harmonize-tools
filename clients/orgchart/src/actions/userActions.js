@@ -14,9 +14,22 @@ export const loadUser = () => async (dispatch) => {
   }
 };
 
+export const loadJwtUser = () => async (dispatch) => {
+  try {
+    const res = await axios.get("/api/v1/auth");
+    dispatch({
+      type: USER_LOADED,
+      payload: res.data.user,
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const logout = () => async (dispatch) => {
   try {
-    const res = await axios.get("/api/v1/auth/logout");
+    await axios.get("/api/v1/auth/logout");
+    localStorage.removeItem("JWT_TOKEN");
     dispatch({
       type: USER_LOGOUT,
     });
@@ -27,6 +40,7 @@ export const logout = () => async (dispatch) => {
 
 export const login = () => (dispatch, getState) => {
   localStorage.setItem("chart", JSON.stringify(getState().chart.currentChart));
+
   window.location =
     process.env.NODE_ENV === "production"
       ? "/api/v1/auth/twitter"

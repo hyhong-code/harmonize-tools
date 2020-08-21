@@ -1,34 +1,29 @@
 const mongoose = require("mongoose");
-const passportLocalMongoose = require("passport-local-mongoose");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const userSchema = new mongoose.Schema({
-  googleId: {
-    type: String,
-    // unique: true,
-  },
-  linkedInId: {
-    type: String,
-    // unique: true,
-  },
-  facebookId: {
-    type: String,
-    // unique: true,
-  },
-  twitterId: {
-    type: String,
-    // unique: true,
-  },
-  name: {
-    type: String,
-    // trim: true,
-  },
   email: {
     type: String,
   },
-  password: String,
-  resetPasswordToken: String,
-  resetPasswordExpires: Date,
-
+  password: {
+    type: String,
+  },
+  googleId: {
+    type: String,
+  },
+  linkedInId: {
+    type: String,
+  },
+  facebookId: {
+    type: String,
+  },
+  twitterId: {
+    type: String,
+  },
+  name: {
+    type: String,
+  },
   photo: {
     type: String,
     default:
@@ -36,5 +31,26 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-userSchema.plugin(passportLocalMongoose);
+// Pre-save hook to automatically hash user's password
+userSchema.pre("save", async function (next) {
+  // Bypass social logins that does not require a password
+  if (!this.isModified("password")) {
+    return next();
+  }
+  // Hash email logged in user's password
+  this.password = await bcrypt.hash(this.password, 12);
+});
+
+// Compare user's password with given plain text
+userSchema.methods.isCorrectPassword = async function (plainPassword) {
+  return await bcrypt.compare(plainPassword, this.password);
+};
+
+// Sends back a new jwt for currently user instance
+userSchema.methods.generateJwtToken = function () {
+  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRES,
+  });
+};
+
 module.exports = mongoose.model("User", userSchema);

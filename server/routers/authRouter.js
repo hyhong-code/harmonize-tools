@@ -1,63 +1,77 @@
 const express = require("express");
 const passport = require("../config/passport");
+
+const { login, signup, loadUser } = require("../controllers/authController");
+const jwtAuth = require("../middlewares/jwtAuth");
+
 const router = express.Router();
-const bcrypt = require("bcryptjs");
-const User = require("../model/User");
 
-var async = require("async");
-var crypto = require("crypto");
-var nodemailer = require("nodemailer");
+// JWT AUTH
+router.route("/").get(jwtAuth, loadUser);
+router.route("/login").post(login);
+router.route("/signup").post(signup);
 
-// register
-router.post("/register", async (req, res) => {
-  const body = req.body;
-  if (body.email) {
-    const existing = await User.findOne({ email: body.email }).countDocuments();
-    if (existing) {
-      // -> error handling: duplicate email
-      res.json({ error: "Email already exists" });
-      return;
-    }
-
-    if (body.password) {
-      const salt = await bcrypt.genSalt(10);
-      body.password = await bcrypt.hash(body.password, salt);
-      try {
-        const newUser = new User(body);
-        await newUser.save();
-
-        // login
-        req.logIn(newUser, function () {
-          // -> after login, redirect to previous page
-          console.log("sdjfdslsj");
-          res.redirect("/orgchart/app");
-        });
-      } catch (error) {
-        // -> internal error handling
-        console.log(error);
-      }
-    } else {
-      // -> empty password error handling
-      res.json({ error: "Password cannot be empty" });
-      return;
-    }
-  } else {
-    // empty email error handling
-    res.json({ error: "Email cannot be empty" });
-    return;
+// PASSPORT AUTH
+router.get("/google", passport.authenticate("google"));
+router.get("/google/callback", passport.authenticate("google"), (req, res) => {
+  if (process.env.NODE_ENV !== "production") {
+    return res.redirect("http://localhost:3000/app");
   }
+  return res.redirect("/orgchart/app");
 });
 
-// login
-router.post(
-  "/login",
-  passport.authenticate("local", {
-    // redirect previous page
-    successRedirect: "/orgchart/app",
-    failureRedirect: "/login",
-  }),
-  function (req, res) {}
+router.get("/linkedin", passport.authenticate("linkedin"));
+router.get(
+  "/linkedin/callback",
+  passport.authenticate("linkedin"),
+  (req, res) => {
+    if (process.env.NODE_ENV !== "production") {
+      return res.redirect("http://localhost:3000/orgchart/app");
+    }
+    return res.redirect("/orgchart/app");
+  }
 );
+
+router.get("/facebook", passport.authenticate("facebook"));
+router.get(
+  "/facebook/callback",
+  passport.authenticate("facebook"),
+  (req, res) => {
+    if (process.env.NODE_ENV !== "production") {
+      return res.redirect("http://localhost:3000/orgchart/app");
+    }
+    return res.redirect("/orgchart/app");
+  }
+);
+
+router.get("/twitter", passport.authenticate("twitter"));
+router.get(
+  "/twitter/callback",
+  passport.authenticate("twitter"),
+  (req, res) => {
+    if (process.env.NODE_ENV !== "production") {
+      return res.redirect("http://localhost:3000/orgchart/app");
+    }
+    return res.redirect("/orgchart/app");
+  }
+);
+
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.status(200).json({ status: "success" });
+});
+router.get("/user", (req, res) => {
+  if (!req.user) {
+    return res
+      .status(401)
+      .json({ status: "failed", message: "User not logged in" });
+  }
+  return res.status(200).json({ status: "success", user: req.user });
+});
+
+module.exports = router;
+
+/*
 
 // forget password, send conformation email
 router.post("/forgot", function (req, res, next) {
@@ -215,61 +229,4 @@ router.post("/reset/:token", function (req, res) {
   );
 });
 
-router.get("/google", passport.authenticate("google"));
-router.get("/google/callback", passport.authenticate("google"), (req, res) => {
-  if (process.env.NODE_ENV !== "production") {
-    return res.redirect("http://localhost:3000/app");
-  }
-  return res.redirect("/orgchart/app");
-});
-
-router.get("/linkedin", passport.authenticate("linkedin"));
-router.get(
-  "/linkedin/callback",
-  passport.authenticate("linkedin"),
-  (req, res) => {
-    if (process.env.NODE_ENV !== "production") {
-      return res.redirect("http://localhost:3000/orgchart/app");
-    }
-    return res.redirect("/orgchart/app");
-  }
-);
-
-router.get("/facebook", passport.authenticate("facebook"));
-router.get(
-  "/facebook/callback",
-  passport.authenticate("facebook"),
-  (req, res) => {
-    if (process.env.NODE_ENV !== "production") {
-      return res.redirect("http://localhost:3000/orgchart/app");
-    }
-    return res.redirect("/orgchart/app");
-  }
-);
-
-router.get("/twitter", passport.authenticate("twitter"));
-router.get(
-  "/twitter/callback",
-  passport.authenticate("twitter"),
-  (req, res) => {
-    if (process.env.NODE_ENV !== "production") {
-      return res.redirect("http://localhost:3000/orgchart/app");
-    }
-    return res.redirect("/orgchart/app");
-  }
-);
-
-router.get("/logout", (req, res) => {
-  req.logout();
-  res.status(200).json({ status: "success" });
-});
-router.get("/user", (req, res) => {
-  if (!req.user) {
-    return res
-      .status(401)
-      .json({ status: "failed", message: "User not logged in" });
-  }
-  return res.status(200).json({ status: "success", user: req.user });
-});
-
-module.exports = router;
+*/

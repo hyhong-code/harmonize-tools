@@ -22,11 +22,7 @@ const _Navbar = () => {
     <header>
       <nav className="navbar-custom">
         <div className="container">
-          <a
-            href="https://www.harmonizehq.com/"
-            rel="noopener noreferrer"
-            className="navbar-brand"
-          >
+          <a href="/" className="navbar-brand">
             <img src={HarmonizeLogo} alt="logo" /> Harmonize
           </a>
           <ul>

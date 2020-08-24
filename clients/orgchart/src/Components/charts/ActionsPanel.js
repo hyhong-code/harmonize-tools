@@ -100,9 +100,7 @@ const EmployeeInfoPanel = ({
           </ListGroup.Item>
           <ListGroup.Item
             className={`action-item ${
-              tooltip.open && (tooltip.step === 2 || tooltip.step === 3)
-                ? "tooltip-selected"
-                : ""
+              tooltip.open && tooltip.step === 2 ? "tooltip-selected" : ""
             }`}
             as="button"
             action

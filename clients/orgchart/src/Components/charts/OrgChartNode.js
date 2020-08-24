@@ -80,7 +80,7 @@ const OrgChartNode = ({
       <div
         className={`oc-inner ${
           tooltip.open &&
-          (tooltip.step === 2 || tooltip.step === 3) &&
+          tooltip.step === 3 &&
           chart.currentChart.id === nodeData.id
             ? "firstNode"
             : ""

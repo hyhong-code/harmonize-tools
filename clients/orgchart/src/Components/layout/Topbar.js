@@ -26,41 +26,29 @@ const Topbar = ({
   return (
     <Fragment>
       <div className={`topbar ${sideDrawer ? "sidedrawer-show" : ""}`}>
-        {/* <div
-        className={`toggler-btn ${sideDrawer ? "opened" : ""}`}
-        onClick={toggleSideDrawer}
-      >
-        <i className="fas fa-chevron-right"></i>
-      </div> */}
+        <Link className="home-link" to="/orgchart">
+          HOME
+        </Link>
         <div className="">
           <h1 className="heading">ORGANIZATIONAL CHART TOOL</h1>
-          {/* <p className="sub-heading">
-            Begin{" "}
-            <span onClick={() => setNewChartPopupShow(true)}>
-              editing your chart
-            </span>{" "}
-            below, or import your employee data
-            <button className="import-btn" onClick={() => openSideDrawer()}>
-              IMPORT
-            </button>
-          </p> */}
         </div>
 
         <div className="d-flex">
           <div className="topbar-actions">
             {user ? (
-              <button onClick={logout}>
-                <i class="fas fa-sign-out-alt"></i> logout
+              <button onClick={logout} className="mr-2 signin-btn">
+                <i class="fas fa-sign-out-alt"></i> Sign Out
               </button>
             ) : (
               <Fragment>
-                <a href="/login" className="mr-2">
-                  Login
+                <a href="/login" className="mr-2 signin-btn">
+                  Sign In
                 </a>
-                <a href="/signup">Register</a>
+                <a href="/signup" className="signup-btn">
+                  Sign Up
+                </a>
               </Fragment>
             )}
-            <Link to="/orgchart">HOME</Link>
           </div>
           {user && (
             <div className="avatar">

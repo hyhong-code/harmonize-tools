@@ -57,10 +57,10 @@ const AddEmployeeModal = ({
     >
       <Modal.Header className="header" closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          {addMode === "DIRECT_REPORT" && "ADD DIRECT REPORT"}
+          {addMode === "DIRECT_REPORT" && "Add Direct Report"}
           {(addMode === "COLLEAGUE_LFET" || addMode === "COLLEAGUE_RIGHT") &&
-            "ADD COLLEAGUE"}
-          {addMode === "HEAD" && "ADD MANAGER"}
+            "Add Colleague"}
+          {addMode === "HEAD" && "Add Manager"}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>

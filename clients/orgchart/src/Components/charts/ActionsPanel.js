@@ -108,36 +108,36 @@ const EmployeeInfoPanel = ({
           >
             <i class="mr-1 fas fa-wrench"></i> New chart
           </ListGroup.Item>
-          <ListGroup.Item
-            onClick={() => handleExport("CSV")}
-            className={`action-item ${
+          <div
+            className={`download-wrapper ${
               tooltip.open && tooltip.step === 4 ? "tooltip-selected" : ""
             }`}
-            as="button"
-            action
           >
-            <i class="fas fa-file-csv"></i> Download as CSV
-          </ListGroup.Item>
-          <ListGroup.Item
-            onClick={() => handleExport("PDF")}
-            className={`action-item ${
-              tooltip.open && tooltip.step === 4 ? "tooltip-selected" : ""
-            }`}
-            as="button"
-            action
-          >
-            <i class="fas fa-file-pdf"></i> Download as PDF
-          </ListGroup.Item>
-          <ListGroup.Item
-            onClick={() => handleExport("JPG")}
-            className={`action-item ${
-              tooltip.open && tooltip.step === 4 ? "tooltip-selected" : ""
-            }`}
-            as="button"
-            action
-          >
-            <i class="fas fa-file-image"></i> Download as image
-          </ListGroup.Item>
+            <ListGroup.Item
+              onClick={() => handleExport("CSV")}
+              className={`action-item`}
+              as="button"
+              action
+            >
+              <i class="fas fa-file-csv"></i> Download as CSV
+            </ListGroup.Item>
+            <ListGroup.Item
+              onClick={() => handleExport("PDF")}
+              className={`action-item`}
+              as="button"
+              action
+            >
+              <i class="fas fa-file-pdf"></i> Download as PDF
+            </ListGroup.Item>
+            <ListGroup.Item
+              onClick={() => handleExport("JPG")}
+              className={`action-item`}
+              as="button"
+              action
+            >
+              <i class="fas fa-file-image"></i> Download as image
+            </ListGroup.Item>
+          </div>
           {/* <ToolTip
             message="Export as JPG, PDF, or CSV"
             placement="left"
@@ -153,7 +153,11 @@ const EmployeeInfoPanel = ({
             </ListGroup.Item>
           </ToolTip> */}
           {user ? (
-            <Fragment>
+            <div
+              className={`download-wrapper ${
+                tooltip.open && tooltip.step === 4 ? "tooltip-selected" : ""
+              }`}
+            >
               <ListGroup.Item
                 onClick={handleLoadCharts}
                 className={`action-item ${
@@ -164,7 +168,6 @@ const EmployeeInfoPanel = ({
               >
                 <i class="mr-1 far fa-window-maximize"></i> Load saved charts
               </ListGroup.Item>
-
               <ListGroup.Item
                 onClick={handleSave}
                 className={`action-item ${
@@ -175,18 +178,20 @@ const EmployeeInfoPanel = ({
               >
                 <i class="mr-1 fas fa-cloud-upload-alt"></i> Save your chart
               </ListGroup.Item>
-            </Fragment>
+            </div>
           ) : (
-            <Fragment>
+            <div
+              className={`download-wrapper ${
+                tooltip.open && tooltip.step === 5 ? "tooltip-selected" : ""
+              }`}
+            >
               <ToolTip
                 message="Sign in to load your saved charts"
                 delay={{ show: 200, hide: 50 }}
                 placement="left"
               >
                 <ListGroup.Item
-                  className={`action-item disabled-item ${
-                    tooltip.open && tooltip.step === 5 ? "tooltip-selected" : ""
-                  }`}
+                  className={`action-item disabled-item`}
                   as="button"
                   action
                 >
@@ -200,17 +205,15 @@ const EmployeeInfoPanel = ({
                 placement="left"
               >
                 <ListGroup.Item
-                  className={`action-item disabled-item ${
-                    tooltip.open && tooltip.step === 5 ? "tooltip-selected" : ""
-                  }`}
+                  className={`action-item disabled-item`}
                   as="button"
                   action
                 >
                   <i class="mr-1 fas fa-cloud-upload-alt"></i> Save your chart
                 </ListGroup.Item>
               </ToolTip>
-            </Fragment>
-          )}{" "}
+            </div>
+          )}
         </ListGroup>
       </div>
       <SaveChartPopup

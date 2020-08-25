@@ -21,7 +21,7 @@ const Guide = () => {
       )}
       {tooltip.step === 2 && (
         <div className="content">
-          <h4>Create from scratch</h4>
+          <h4>Create your chart from scratch</h4>
           <p>
             You can also create your chart from a blank slate. Use the (+)
             buttons on the sides of an employee's card to add new employees.
@@ -34,7 +34,7 @@ const Guide = () => {
           <p>
             You can edit employee info by clicking anywhere on an employee's
             card. You can delete an employee by clicking the 3 dots in the upper
-            right hand corner.
+            right hand corner of the card.
           </p>
         </div>
       )}
@@ -54,7 +54,7 @@ const Guide = () => {
             If you'd like to return to your chart at a later date or create
             multiple charts, you can sign in to save and load your charts.
           </p>
-          <div className="start">
+          {/* <div className="start">
             <button
               className="step-one-continue"
               onClick={() => {
@@ -64,7 +64,7 @@ const Guide = () => {
             >
               I'm Ready
             </button>
-          </div>
+          </div> */}
         </div>
       )}
       <div className="actions">
@@ -81,17 +81,15 @@ const Guide = () => {
         >
           <i className="fas fa-chevron-right"></i>
         </div>
-        {tooltip.step !== 5 && (
-          <button
-            className="skip"
-            onClick={() => {
-              dispatch(closeToolTips());
-              dispatch(setToolTipSteps(1));
-            }}
-          >
-            Skip the tour
-          </button>
-        )}
+        <button
+          className="skip"
+          onClick={() => {
+            dispatch(closeToolTips());
+            dispatch(setToolTipSteps(1));
+          }}
+        >
+          {tooltip.step === 5 ? "Get Started" : "Skip the tour"}
+        </button>
       </div>
     </div>
   );

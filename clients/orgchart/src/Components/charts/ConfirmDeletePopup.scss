@@ -71,8 +71,9 @@
 
       %btn {
         transition: translateY, box-shadow, 0.2s ease;
-        width: 4.7rem;
-        height: 1.4rem;
+        // width: 4.7rem;
+        // height: 1.4rem;
+        padding: 0.35rem 1rem;
         border-radius: 93.3px;
         box-shadow: 0 2px 4.7px 0 $greyed-out-chart-content;
         font-weight: 500;

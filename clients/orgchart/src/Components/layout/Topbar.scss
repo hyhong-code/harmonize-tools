@@ -5,15 +5,40 @@
   height: 5rem;
   background-color: $main-color;
   display: flex;
-  align-items: flex-end;
+
   // padding: 1rem 2.4rem;
   box-shadow: 0 2px 4px rgba(#000, 0.2);
   padding: 0 15px;
-  align-items: center;
+
   justify-content: space-between;
+  align-items: center;
 
   padding-left: calc(15px + 3rem);
   transition: padding, 0.3s ease-out;
+
+  .home-link {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    background-color: lighten($main-color, 3%);
+    color: #fff;
+    font: inherit;
+    font-weight: 400;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.2s ease-out;
+
+    &:hover {
+      text-decoration: none;
+      color: #fff;
+      background-color: lighten($main-color, 10%);
+    }
+
+    &:last-child {
+      margin-left: 0.5rem;
+    }
+  }
 
   &.sidedrawer-show {
     padding-left: calc(15px + 30rem);
@@ -93,89 +118,9 @@
       }
     }
 
-    .import-btn {
-      border: none;
-      padding: 0;
-      margin: 0;
-      display: inline-block;
-      padding: 1px 5px;
-      border-radius: 5px;
-      margin-left: 0.5rem;
-
-      background-color: #fff;
-      color: lighten($dark-text, 15%);
-      font: inherit;
-      font-weight: 500;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background-color 0.2s ease-out;
-      box-shadow: 0 2px 3px rgba(#000, 0.1);
-      transition: transform, box-shadow, 0.2s ease;
-
-      &:focus,
-      &:active {
-        outline: none;
-      }
-
-      &:hover {
-        transform: scale(1.03);
-        box-shadow: 0 3px 4px rgba(#000, 0.1);
-      }
-    }
-  }
-
-  .topbar-actions {
-    align-self: flex-start;
-    margin-right: 0.5rem;
-
-    a {
-      display: inline-block;
-      padding: 0.2rem 0.5rem;
-      border-radius: 5px;
-      background-color: lighten($main-color, 3%);
-      color: #fff;
-      font: inherit;
-      font-weight: 400;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background-color 0.2s ease-out;
-
-      &:hover {
-        text-decoration: none;
-        color: #fff;
-        background-color: lighten($main-color, 10%);
-      }
-
-      &:last-child {
-        margin-left: 0.5rem;
-      }
-    }
-
-    button {
-      display: inline-block;
-      padding: 0.2rem 0.5rem;
-      border-radius: 5px;
-      background-color: lighten($main-color, 3%);
-      color: #fff;
-      font: inherit;
-      font-weight: 400;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background-color 0.2s ease-out;
-      border: none;
-
-      &:hover {
-        text-decoration: none;
-        color: #fff;
-        background-color: lighten($main-color, 10%);
-      }
-
-      &:focus {
-        outline: none;
-      }
+    .topbar-actions {
+      align-self: flex-start;
+      margin-right: 0.5rem;
     }
   }
 
@@ -188,5 +133,64 @@
     img {
       width: 100%;
     }
+  }
+}
+
+a.signin-btn {
+  background-color: white;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #000;
+  text-decoration: none !important;
+  display: inline-block;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    color: #000;
+    transform: translateY(-1px) !important;
+  }
+}
+
+button.signin-btn {
+  border: none;
+  background-color: white;
+  padding: 0.3rem 0.5rem;
+  border-radius: 5px;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #000;
+  text-decoration: none !important;
+  display: inline-block;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    color: #000;
+    transform: translateY(-1px) !important;
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+a.signup-btn {
+  color: #fff;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-decoration: none !important;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  display: inline-block;
+  margin-left: 0.5rem;
+
+  &:hover {
+    color: #fff;
+    border-bottom: 1px solid #fff;
   }
 }

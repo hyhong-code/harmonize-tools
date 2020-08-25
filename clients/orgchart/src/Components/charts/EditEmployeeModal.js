@@ -45,7 +45,7 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
     >
       <Modal.Header className="header" closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          EDIT EMPLOYEE
+          Edit Employee
         </Modal.Title>
       </Modal.Header>
 

@@ -68,8 +68,9 @@
 
     .confirm-btn {
       @extend %btn;
-      width: 4.5rem;
-      height: 1.4rem;
+      // width: 4.5rem;
+      // height: 1.4rem;
+      padding: 0.35rem 1rem;
       border-radius: 93.3px;
       background-color: $main-color;
       border: none;
@@ -86,8 +87,9 @@
 
     .close-btn {
       @extend %btn;
-      width: 4.5rem;
-      height: 1.4rem;
+      // width: 4.5rem;
+      // height: 1.4rem;
+      padding: 0.35rem 1rem;
       border-radius: 93.3px;
       background-color: $progress-circle-light-blue-bg;
       font-size: 0.8rem;

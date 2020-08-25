@@ -11,6 +11,7 @@ import OrgChart from "../charts/OrgChart";
 import Checklist from "../tooltips/Checklist";
 import Guide from "../tooltips/Guide";
 import setTokenHeader from "../../utils/setTokenHeader";
+import Loading from "../layout/Loading";
 
 const Home = ({ user, loadUser, loadJwtUser }) => {
   useEffect(() => {
@@ -32,6 +33,7 @@ const Home = ({ user, loadUser, loadJwtUser }) => {
 
   return (
     <div className="app-home">
+      <Loading />
       <Topbar user={user} />
       <ControlPanel />
       <Container fluid>

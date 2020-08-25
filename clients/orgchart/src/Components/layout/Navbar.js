@@ -18,9 +18,24 @@ const _Navbar = () => {
     a.click();
   };
 
+  const [navWhite, setNavWhite] = useState(false);
+  useEffect(() => {
+    function handleScroll() {
+      if (window.pageYOffset > 50) {
+        setNavWhite(true);
+      } else {
+        setNavWhite(false);
+      }
+    }
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <header>
-      <nav className="navbar-custom">
+      <nav className={`navbar-custom ${navWhite ? "white" : ""}`}>
         <div className="container">
           <a href="/" className="navbar-brand">
             <img src={HarmonizeLogo} alt="logo" /> Harmonize
@@ -32,7 +47,7 @@ const _Navbar = () => {
                 onMouseOver={() => setShowDropdown(true)}
                 onMouseLeave={() => setShowDropdown(false)}
               >
-                Products <i class="fas fa-chevron-down"></i>
+                Products <i class="fas fa-chevron-down ml-1"></i>
                 {showDropdown && (
                   <div className="product-dropdown" ref={dropdownRef}>
                     <div className="dropdown-content">

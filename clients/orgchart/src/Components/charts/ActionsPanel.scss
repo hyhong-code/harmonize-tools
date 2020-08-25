@@ -63,6 +63,20 @@
   }
 
   .action-list {
+    .download-wrapper {
+      margin-top: -1px;
+      z-index: 1000;
+      overflow: hidden !important;
+
+      &.tooltip-selected {
+        border: 2px solid $main-color;
+        border-radius: 5px;
+        transform: scale(1.02);
+        font-weight: 500;
+        z-index: 1001;
+      }
+    }
+
     .action-item {
       padding: 0;
       font-size: 0.7rem;
@@ -82,7 +96,7 @@
         border-radius: 5px;
         transform: scale(1.05);
         font-weight: 500;
-        z-index: 100;
+        z-index: 1001;
       }
 
       &.disabled-item {
@@ -91,5 +105,11 @@
         color: lighten($divider-grey, 15%);
       }
     }
+  }
+}
+
+button.action-item.list-group-item.list-group-item-action {
+  &:hover {
+    background-color: lighten($progress-circle-light-blue-bg, 3);
   }
 }

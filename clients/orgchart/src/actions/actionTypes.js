@@ -46,3 +46,7 @@ export const STEP_SET = "STEP_SET";
 export const TOOLTIP_OPEN = "TOOLTIP_OPEN";
 export const TOOLTIP_CLOSE = "TOOLTIP_CLOSE";
 export const TOOLTIP_STEP_SET = "TOOLTIP_STEP_SET";
+
+// Loading
+export const LOADING_OPEN = "LOADING_OPEN";
+export const LOADING_CLOSED = "LOADING_CLOSED";

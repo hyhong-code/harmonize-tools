@@ -55,7 +55,7 @@ const _Navbar = () => {
                         Paycheck Calculator
                       </a>
                       <a target="_blank" rel="noreferrer" href="/orgchart">
-                        Organization Chart
+                        Organizational Chart
                       </a>
                       <a href="">Contract Generator</a>
                       <a href="">Onboarding</a>

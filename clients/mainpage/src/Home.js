@@ -23,10 +23,25 @@ const Home = () => {
     a.click();
   };
 
+  const [navWhite, setNavWhite] = useState(false);
+  useEffect(() => {
+    function handleScroll() {
+      if (window.pageYOffset > 50) {
+        setNavWhite(true);
+      } else {
+        setNavWhite(false);
+      }
+    }
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div>
       <header>
-        <nav className="navbar">
+        <nav className={`navbar ${navWhite ? "white" : ""}`}>
           <div className="container">
             <a
               href="https://www.harmonizehq.com/"
@@ -42,7 +57,7 @@ const Home = () => {
                   onMouseOver={() => setShowDropdown(true)}
                   onMouseLeave={() => setShowDropdown(false)}
                 >
-                  Products <i class="fas fa-chevron-down"></i>
+                  Products <i class="fas fa-chevron-down ml-1"></i>
                   {showDropdown && (
                     <div className="product-dropdown" ref={dropdownRef}>
                       <div className="dropdown-content">
@@ -50,7 +65,7 @@ const Home = () => {
                           Paycheck Calculator
                         </a>
                         <a target="_blank" rel="noreferrer" href="/orgchart">
-                          Organization Chart
+                          Organizational Chart
                         </a>
                         <a href="">Contract Generator</a>
                         <a href="">Onboarding</a>

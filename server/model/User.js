@@ -40,7 +40,6 @@ userSchema.pre("save", async function (next) {
   // Hash email logged in user's password
   this.password = await bcrypt.hash(this.password, 12);
 });
-å;
 
 // Compare user's password with given plain text
 userSchema.methods.isCorrectPassword = async function (plainPassword) {

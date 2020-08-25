@@ -82,14 +82,14 @@ header {
 
           a {
             font-size: 0.75rem;
-            font-weight: bold;
+            font-weight: 600;
             text-transform: uppercase;
             color: #fffcfc;
           }
 
           .products-drop {
             font-size: 0.75rem;
-            font-weight: bold;
+            font-weight: 600;
             text-transform: uppercase;
             color: #fffcfc;
             background-color: inherit;
@@ -111,15 +111,16 @@ header {
                 border-radius: 5px;
                 box-shadow: 1px 3px 3px rgba(#000, 0.2);
                 cursor: default;
-                padding: 0.635rem 0.5rem.3125rem;
+                padding: 0.635rem 0.5rem 0.3125rem 0.8rem;
 
                 a {
                   display: block;
                   color: black;
                   margin: 0.625rem 0;
                   font-weight: 700;
-                  text-align: center;
+                  text-align: left;
                   transition: 0.2s ease;
+                  text-transform: none;
 
                   &:hover {
                     color: #431f85;

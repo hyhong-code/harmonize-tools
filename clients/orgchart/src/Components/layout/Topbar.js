@@ -41,10 +41,10 @@ const Topbar = ({
               </button>
             ) : (
               <Fragment>
-                <a href="/login" className="mr-2 signin-btn">
+                <a href="/login" className="mr-2 signup-btn">
                   Sign In
                 </a>
-                <a href="/signup" className="signup-btn">
+                <a href="/signup" className="signin-btn">
                   Sign Up
                 </a>
               </Fragment>

@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+.button {
+    background-color:#e07c00;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 40.5px;
+    color: #ffffff;
+    font-size: 20px;
+    width: 150px;
+    height: 62.3px;
+    font-family: 'Nunito';
+}
+
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+  }
+
+.question{
+    color: #000000;
+    font-family: Nunito;
+    font-size: 36px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.input{
+    /* display: inline; */
+    border: 0px;
+    font-family: Nunito;
+    border-bottom: 1px solid #aaaaaa;
+    font-weight: normal;
+    color: #999999;
+    font-size: 36px;
+    margin-left: 1rem;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    width: 490px;
+}

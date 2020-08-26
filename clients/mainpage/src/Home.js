@@ -57,18 +57,29 @@ const Home = () => {
                   onMouseOver={() => setShowDropdown(true)}
                   onMouseLeave={() => setShowDropdown(false)}
                 >
-                  Products <i class="fas fa-chevron-down ml-1"></i>
+                  Products{" "}
+                  <i
+                    class="fas fa-chevron-down"
+                    style={{ marginLeft: "2.5px" }}
+                  ></i>
                   {showDropdown && (
                     <div className="product-dropdown" ref={dropdownRef}>
                       <div className="dropdown-content">
                         <a target="_blank" rel="noreferrer" href="/calculator">
                           Paycheck Calculator
                         </a>
+
                         <a target="_blank" rel="noreferrer" href="/orgchart">
                           Organizational Chart
                         </a>
-                        <a href="">Contract Generator</a>
-                        <a href="">Onboarding</a>
+
+                        <a target="_blank" rel="noreferrer" href="/contract">
+                          Contract Generator
+                        </a>
+
+                        <a target="_blank" rel="noreferrer" href="/onboarding">
+                          Onboarding
+                        </a>
                       </div>
                     </div>
                   )}
@@ -87,6 +98,7 @@ const Home = () => {
           </div>
         </nav>
       </header>
+
       <main>
         <div className="lead">
           <div className="container">
@@ -94,6 +106,7 @@ const Home = () => {
             <h1 className="heading">Free tools to excel in HR</h1>
             <p className="below-heading">
               Crafted to make everyday mundane tasks quicker and easier.
+              <br />
               Automate and simplify your work to focus on what really matters —
               Harmonizing your teams.
             </p>
@@ -110,12 +123,16 @@ const Home = () => {
               >
                 <div className="tool-title">Paycheck Calculator</div>
                 <div className="tool-msg">
-                  Don’t drown yourself in complex calculations! Use our easy to
-                  understand paycheck calculator to know your employees’
-                  take-home pay.
+                  Don’t drown yourself in complex calculations!
+                  <br />
+                  Use our easy to understand paycheck calculator
+                  <br />
+                  to know your employees’ take-home pay.
+                  <br />
                 </div>
                 <p className="tool-link">Learn More &rarr;</p>
               </div>
+
               <div
                 className="tool-card"
                 onClick={() => {
@@ -124,39 +141,46 @@ const Home = () => {
               >
                 <div className="tool-title">Organizational Chart</div>
                 <div className="tool-msg">
-                  Need help visualizing the structure of your business? Use our
-                  organizational chart tool to bring employees together and make
-                  your organization more connected.
+                  Need help visualizing the structure of your business?
+                  <br />
+                  Use our organizational chart tool to bring employees together
+                  <br />
+                  and make your organization more connected.
+                  <br />
                 </div>
                 <p className="tool-link">Learn More &rarr;</p>
               </div>
-              {/* <div className="tool-card">
+
+              <div
+                className="tool-card"
+                onClick={() => {
+                  navigate("/contract", true);
+                }}
+              >
                 <div className="tool-title">Contract Generator</div>
                 <div className="tool-msg">
-                  New hire? No problem? Create free customized new-hire NDA in
-                  just a few minutes.
+                  New hire? No problem?
+                  <br />
+                  Create free customized new-hire NDA in just a few minutes.
+                  <br />
                 </div>
-                <a href="" className="tool-link">
-                  Contract Generator &rarr;
-                </a>
-              </div> */}
-              <div className="tool-card">
-                <div className="tool-title">Contract Generator</div>
-                <div className="tool-msg">Launching soon!</div>
+                <p className="tool-link">Learn More &rarr;</p>
               </div>
-              {/* <div className="tool-card">
-                <div className="tool-title">Contract Generator</div>
-                <div className="tool-msg">
-                  Set up new hires for success! Streamline the onboarding
-                  process with automated emails and workflows so you can give
-                  new hires a smooth and positive experience.
-                </div>
-                <a href="" className="tool-link">
-                  Onboarding &rarr;
-                </a> */}
-              <div className="tool-card">
+
+              <div
+                className="tool-card"
+                onClick={() => {
+                  navigate("/onboarding", true);
+                }}
+              >
                 <div className="tool-title">Onboarding</div>
-                <div className="tool-msg">Launching soon!</div>
+                <div className="tool-msg">
+                  Set up new hires for success!
+                  <br />
+                  Streamline the onboarding process with automated workflows
+                  <br />
+                </div>
+                <p className="tool-link">Learn More &rarr;</p>
               </div>
             </div>
           </div>

@@ -4,8 +4,8 @@
   "description": "HARMONIZE TOOLS",
   "main": "server/app.js",
   "scripts": {
-    "install-packages": "npm install --prefix server && npm install --prefix clients/orgchart && npm install --prefix clients/mainpage",
-    "build-clients": "npm run build --prefix clients/orgchart && npm run build --prefix clients/mainpage",
+    "install": "npm install --prefix server && npm install --prefix clients/orgchart && npm install --prefix clients/mainpage && npm install --prefix clients/contract",
+    "build": "npm run build --prefix clients/orgchart && npm run build --prefix clients/mainpage && npm run build --prefix clients/contract",
     "start": "NODE_ENV=production node server/app.js"
   },
   "author": "",

@@ -47,7 +47,11 @@ const _Navbar = () => {
                 onMouseOver={() => setShowDropdown(true)}
                 onMouseLeave={() => setShowDropdown(false)}
               >
-                Products <i class="fas fa-chevron-down ml-1"></i>
+                Products{" "}
+                <i
+                  class="fas fa-chevron-down"
+                  style={{ marginLeft: "2.5px" }}
+                ></i>
                 {showDropdown && (
                   <div className="product-dropdown" ref={dropdownRef}>
                     <div className="dropdown-content">

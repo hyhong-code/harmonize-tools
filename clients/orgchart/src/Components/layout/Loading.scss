@@ -6,7 +6,8 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  // background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.6);
   z-index: 5000;
 }
 
@@ -18,7 +19,7 @@
   height: 623px;
   z-index: 5001;
   background-color: #fff;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   transform: translateX(-50%) translateY(-150vh);
   transition: transform 0.3s ease;
 
@@ -121,11 +122,11 @@
         }
 
         &.start {
-          background-color: #6c63ff;
+          background-color: lighten(#441eae, 10);
         }
 
         &.skip {
-          background-color: lighten(#441eae, 10);
+          background-color: #6c63ff;
         }
       }
     }

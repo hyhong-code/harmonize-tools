@@ -12,7 +12,7 @@ router.route("/login").post(login);
 router.route("/signup").post(signup);
 
 // PASSPORT AUTH
-router.get("/google", passport.authenticate("google"));
+router.get('/google', passport.authenticate('google', { scope: ['profile'] }));
 router.get("/google/callback", passport.authenticate("google"), (req, res) => {
   if (process.env.NODE_ENV !== "production") {
     return res.redirect("http://localhost:3000/app");

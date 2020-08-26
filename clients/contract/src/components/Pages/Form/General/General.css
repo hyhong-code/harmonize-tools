@@ -1,0 +1,88 @@
+.form-container {
+  margin-left: 550px;
+  margin-top: 68px;
+  background-color: white ;
+  width: 30% ;
+  min-width:500px;
+}
+
+.SelectState {
+  background-color: white;
+  border: 0px;
+  border-bottom: 1.5px solid #aaaaaa;
+  width: 223px;
+  font-weight: 400;
+  color: #999999;
+  font-size: 1.5em;
+  padding-bottom: 10px;
+}
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+.Button {
+  background-color: #e07c00;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: 20px;
+  width: 140px;
+  height: 58.3px;
+  font-family: "Nunito";
+  box-shadow: 0 2px 2px 0;
+  margin-left: 180%;
+}
+
+.Back-Button {
+  background-color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 30px;
+  color: #e07c00;
+  font-size: 20px;
+  width: 140px;
+  height: 58.3px;
+  font-family: "Nunito";
+}
+
+.form-end {
+  border-bottom: 1px solid #e07c00;
+  margin-top: 50px;
+  min-width: 560px;
+}
+
+.heading {
+  font-family: "Nunito";
+  font-size: 36px;
+  border-bottom: 2px solid #e07c00;
+}
+
+
+.form-question {
+  font-size: 28px;
+  font-family: Nunito;
+  font-weight: 550;
+}
+
+.SelectState {
+  border: 0px;
+  border-bottom: 1.5px solid #aaaaaa;
+  width: 40%;
+  font-weight: 400;
+  color: #999999;
+  font-size: 1rem !important;
+  padding-bottom: 10px;
+  margin-top: 24px !important;
+}
+
+.ant-tooltip-inner {
+  width: 360px;
+}
+
+.required{
+  color: #e07c00;
+  font-weight: 550;
+  font-size: 15px;
+}
+

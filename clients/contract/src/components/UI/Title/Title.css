@@ -1,0 +1,15 @@
+.title-container {
+    min-width:1000px;
+    margin-left: 530px;
+    margin-top: 81.7px;
+}
+
+.title-h1 {
+
+  font-family: "Nunito";
+  font-size: 36px;
+  font-family: Nunito;
+  line-height: 0;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e07c00;
+}

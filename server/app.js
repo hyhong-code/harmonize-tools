@@ -48,6 +48,10 @@ if (process.env.NODE_ENV === "production") {
     express.static(path.join(__dirname, "../clients", "orgchart", "build"))
   );
   app.use(
+    "/contract",
+    express.static(path.join(__dirname, "../clients", "contract", "build"))
+  );
+  app.use(
     "/calculator",
     express.static(path.join(__dirname, "../clients", "calculator"))
   );
@@ -62,14 +66,19 @@ app.use(errorHandler);
 
 // Catch all
 if (process.env.NODE_ENV === "production") {
-  app.use("/orgchart/*", (req, res, nect) => {
+  app.use("/orgchart/*", (req, res, next) => {
     res.sendFile(
       path.join(__dirname, "../clients", "orgchart", "build", "index.html")
     );
   });
-  app.use("/calculator/*", (req, res, nect) => {
+  app.use("/calculator/*", (req, res, next) => {
     res.sendFile(
       path.join(__dirname, "../clients", "calculator", "index.html")
+    );
+  });
+  app.use("/contract/*", (req, res, next) => {
+    res.sendFile(
+      path.join(__dirname, "../clients", "contract", "build", "index.html")
     );
   });
   app.use("*", (req, res, next) => {

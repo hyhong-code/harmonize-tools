@@ -1,0 +1,21 @@
+.header{
+    background-color: #d4f1ff;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.12);
+    min-width: 1550px;
+    height: 73.3px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+.header-text{
+
+    font-family: Nunito !important;;
+    font-size: 20px !important;
+    font-weight: normal !important;
+    font-stretch: normal !important;
+    font-style: normal !important;
+    line-height: normal !important;
+    letter-spacing: normal !important;
+    color: #000000 !important;
+    padding-left: 6rem;
+}
+

@@ -11,6 +11,7 @@ import "./Loading.scss";
 const Loading = () => {
   const dispatch = useDispatch();
   const loading = useSelector(({ loading }) => loading);
+  const user = useSelector(({ user }) => user);
 
   const handleStart = () => {
     dispatch(closeLoading());
@@ -22,8 +23,8 @@ const Loading = () => {
 
   return (
     <Fragment>
-      {loading && <div className="loading-screen"></div>}
-      <div className={`loading-popup ${loading ? "loading" : ""}`}>
+      {loading && !user && <div className="loading-screen"></div>}
+      <div className={`loading-popup ${loading && !user ? "loading" : ""}`}>
         <div className="top-part">
           <div className="brand">
             <img src={Logo} alt="logo" className="brand-img" />

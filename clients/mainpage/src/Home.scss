@@ -57,6 +57,7 @@ header {
     position: fixed;
     right: 0;
     left: 0;
+    padding: 0 !important;
 
     transition: background-color, box-shadow, 0.2s ease;
     &.white {
@@ -115,7 +116,7 @@ header {
 
         li {
           &:not(:first-child) {
-            margin-left: 8rem;
+            margin-left: 86px;
           }
 
           a {
@@ -145,13 +146,13 @@ header {
                 border-radius: 5px;
                 box-shadow: 1px 3px 3px rgba(#000, 0.2);
                 cursor: default;
-                padding: 0.635rem 0.5rem 0.3125rem 2.5rem;
+                padding: 0.635rem 0.5rem 0.3125rem 2.65rem;
 
                 a {
                   display: block;
                   color: black;
                   margin: 1rem 0;
-                  font-weight: 700;
+                  font-weight: 500;
                   text-align: left;
                   transition: 0.2s ease;
                   text-transform: none;

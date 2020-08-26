@@ -1,0 +1,19 @@
+.main-feature{
+    min-height:60rem;
+    position: relative;
+    background-color:white;
+}
+
+.main-feature .text-box h3{
+    color: black;
+    font-weight: 300;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+.feature-section{
+    font-family: Lora;
+    font-size: 2.25rem;
+    font-weight: bold;
+    line-height: 3;
+    margin-top: 5rem;
+}

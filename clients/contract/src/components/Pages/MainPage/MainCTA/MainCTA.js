@@ -12,7 +12,7 @@ export default function MainCTA() {
           </h2>
           <div>
             <button className="call-to-action">
-            <Link to="contract/app">Try Now</Link>
+            <Link to="/getStarted">Try Now</Link>
             </button>
           </div>
         </Container>

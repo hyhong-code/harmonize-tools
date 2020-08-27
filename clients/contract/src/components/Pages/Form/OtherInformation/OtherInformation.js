@@ -6,6 +6,8 @@ import { useStateMachine } from "little-state-machine";
 import Tooltip from "../../../UI/Tooltip/Tooltip";
 import { TextField } from "@material-ui/core";
 import Navigation from "../../../Navigation/Navigation";
+import { Container, Row, Col } from "react-bootstrap";
+import Title from "../../../UI/Title/Title";
 
 const OtherInformation = (props) => {
   const { push } = useHistory();
@@ -16,21 +18,23 @@ const OtherInformation = (props) => {
 
   const onNextStep = (data) => {
     action(data);
-    push("/contract/timePeriod");
+    push("/timePeriod");
     console.log(data);
   };
 
   const onBackStep = (e) => {
     e.preventDefault();
-    push("/contract/confidentiality");
+    push("/confidentiality");
   };
 
   return (
-    <>
-      <Navigation />
+    <Container>
+      <Row>
+        <Col xs={3}><Navigation /></Col>
+      <Col>
       <form onSubmit={handleSubmit(onNextStep)}>
+      <Title />
         <div className="form-container">
-          
           {/*********  Other Information *********/}
           <div style={{ marginBottom: "40px" }}>
             <h1 className="form-question" style={{ color: "#868383"}}>
@@ -42,10 +46,13 @@ const OtherInformation = (props) => {
             <Controller
               as={
                 <TextField
-                  label="Ex. Example"
+                  label="*Optional"
                   style={{ width: "80%", marginTop: "10px" }}
                   inputRef={register}
                   bordered={false}
+                  InputLabelProps={{style: {fontSize: 13}}}
+                  InputProps={{style: {fontSize: 14}}} 
+                  size='small'
                 />
               }
               control={control}
@@ -72,12 +79,14 @@ const OtherInformation = (props) => {
 
         </div>
       </form>
-    </>
+      </Col>
+      </Row>
+    </Container>
   );
 };
 
 const otherInfo = (
-  <span style={{ color: "white", fontSize: "18px" }}>
+  <span style={{ color: "white", fontSize: "14px" }}>
     <b>What can be included in "other information"?</b> <br/>
     You can include specific kinds of information to which you would like to extend a protection.
   </span>

@@ -7,6 +7,8 @@ import { Select } from "antd";
 import Tooltip from "../../../UI/Tooltip/Tooltip";
 import { TextField } from "@material-ui/core";
 import Navigation from "../../../Navigation/Navigation";
+import { Container, Row, Col } from "react-bootstrap";
+import Title from "../../../UI/Title/Title";
 const { Option } = Select;
 
 const Recieving = (props) => {
@@ -18,23 +20,25 @@ const Recieving = (props) => {
 
   const onNextStep = (data) => {
     action(data);
-    push("/contract/partiesRelationship");
+    push("/partiesRelationship");
     console.log(data);
   };
 
   const onBackStep = (e) => {
     e.preventDefault();
-    push("/contract/disclosing");
+    push("/disclosing");
   };
 
   return (
-    <>
-      <Navigation />
+    <Container>
+      <Row>
+      <Col xs={3}><Navigation /></Col>
+      <Col>
       <form onSubmit={handleSubmit(onNextStep)}>
+        <Title />
         <div className="form-container">
-
           {/*********  1. Discloser Name *********/}
-          <div style={{ marginBottom: "40px" }}>
+          <div style={{ marginBottom: "30px" }}>
             <h1 className="form-question">
               Recipient Name
               <Tooltip placement="right" tips={recipientTip} />
@@ -47,6 +51,9 @@ const Recieving = (props) => {
                   bordered={false}
                 />
               }
+              InputLabelProps={{style: {fontSize: 13}}}
+              InputProps={{style: {fontSize: 14}}} 
+              size='small'
               control={control}
               name="recipientName"
               rules={{ required: true }}
@@ -56,13 +63,13 @@ const Recieving = (props) => {
             )}
           </div>
 
-          {/*********  2. Recipient Entity *********/}
+          {/* ********  2. Recipient Entity ********
           <div style={{ marginBottom: "40px" }}>
             <h2 className="form-question">Recipient Entity</h2>
             <Controller
               as={
                 <TextField
-                  label="Ex. Individual"
+                  label="Ex. Employee"
                   style={{ width: "40%" }}
                   bordered={false}
                 />
@@ -74,11 +81,11 @@ const Recieving = (props) => {
             {errors.recipientEntity && (
               <p className="required">This is required.</p>
             )}
-          </div>
+          </div> */}
 
           {/*********  3. Recipient  Address *********/}
           <div style={{ marginBottom: "70px" }}>
-            <h2 className="form-question">Discloser Address</h2>
+            <h2 className="form-question">Recipient Address</h2>
             {(errors.recipientAddressStreet ||
               errors.recipientAddressCity ||
               errors.recipientAddressState ||
@@ -92,6 +99,9 @@ const Recieving = (props) => {
                   label="Street Address"
                   style={{ width: "80%" }}
                   bordered={false}
+                  InputLabelProps={{style: {fontSize: 13}}}
+                  InputProps={{style: {fontSize: 14}}} 
+                  size='small'
                 />
               }
               control={control}
@@ -103,8 +113,11 @@ const Recieving = (props) => {
               as={
                 <TextField
                   label="Address Line 2"
-                  style={{ width: "80%" }}
+                  style={{ width: "80%" , marginTop: '5px'}}
                   bordered={false}
+                  InputLabelProps={{style: {fontSize: 13}}}
+                  InputProps={{style: {fontSize: 14}}} 
+                  size='small'
                 />
               }
               control={control}
@@ -115,8 +128,11 @@ const Recieving = (props) => {
               as={
                 <TextField
                   label="City"
-                  style={{ width: "33%", marginTop: "10px" }}
+                  style={{ width: "33%", marginTop: '5px'}}
                   bordered={false}
+                  InputLabelProps={{style: {fontSize: 13}}}
+                  InputProps={{style: {fontSize: 14}}} 
+                  size='small'
                 />
               }
               control={control}
@@ -201,8 +217,11 @@ const Recieving = (props) => {
               as={
                 <TextField
                   label="Zipcode"
-                  style={{ width: "20%", marginTop: "10px" }}
+                  style={{ width: "20%", marginTop: '5px'}}
                   bordered={false}
+                  InputLabelProps={{style: {fontSize: 13}}}
+                  InputProps={{style: {fontSize: 14}}} 
+                  size='small'
                 />
               }
               control={control}
@@ -227,15 +246,16 @@ const Recieving = (props) => {
           </div>
         </div>
       </form>
-    </>
+      </Col>
+      </Row>
+    </Container>
   );
 };
 
 const recipientTip = (
-  <span style={{ color: "white", fontSize: "18px" }}>
+  <span style={{ color: "white", fontSize: "14px" }}>
     <b>Who is the Recipient or the Recieving Party?</b>
-    <br /> Receiving Party is a party who receives the confidential information
-    and is obligated to keep it secret E.g. employee
+    <br /> Receiving Party is a party who receives confidential information and is obligated to keep it secret E.g. employee
   </span>
 );
 export default Recieving;

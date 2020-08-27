@@ -8,8 +8,8 @@
     border-radius: 40.5px;
     color: #ffffff;
     font-size: 20px;
-    width: 150px;
-    height: 62.3px;
+    width: 120px;
+    height: 55.3px;
     font-family: 'Nunito';
 }
 
@@ -24,7 +24,7 @@
 .question{
     color: #000000;
     font-family: Nunito;
-    font-size: 36px;
+    font-size: 30px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -39,10 +39,10 @@
     border-bottom: 1px solid #aaaaaa;
     font-weight: normal;
     color: #999999;
-    font-size: 36px;
+    font-size: 30px;
     margin-left: 1rem;
     padding-left: 5px;
     padding-right: 5px;
     text-align: center;
-    width: 490px;
+    width: 430px;
 }

@@ -6,6 +6,8 @@ import { useStateMachine } from "little-state-machine";
 import Tooltip from "../../../UI/Tooltip/Tooltip";
 import { TextField } from "@material-ui/core";
 import Navigation from "../../../Navigation/Navigation";
+import { Container, Row, Col } from "react-bootstrap";
+import Title from "../../../UI/Title/Title";
 
 const TimePeriod = (props) => {
   const { push } = useHistory();
@@ -16,20 +18,24 @@ const TimePeriod = (props) => {
 
   const onNextStep = (data) => {
     action(data);
-    push("/contract/downloadTo");
+    push("/downloadTo");
     console.log(data);
   };
 
   const onBackStep = (e) => {
     e.preventDefault();
-    push("/contract/otherInformation");
+    push("/otherInformation");
   };
 
   return (
-    <>
-      <Navigation />
+    <Container>
+      <Row>
+        <Col xs={3}><Navigation /></Col>
+
+      <Col>
       <form onSubmit={handleSubmit(onNextStep)}>
-        <div className="form-container" style={{ width: "40%"}}>
+        <Title />
+        <div className="form-container" >
 
           {/*********  Time Period *********/}
           <div style={{ marginBottom: "40px" }}>
@@ -48,7 +54,7 @@ const TimePeriod = (props) => {
                 ref={register({ required: true })}
               />
               <label
-                style={{marginLeft: "10px", fontSize:'18px'}}
+                style={{marginLeft: "10px", fontSize:'14px'}}
                 className="radio"
               >Survive its termination
                 <Tooltip placement="right" tips={timePeriodTip1} />
@@ -56,14 +62,14 @@ const TimePeriod = (props) => {
             </div>
 
             {/*********    2. Termination Year   *********/}
-            <div style={{ marginBottom: "20px", display: "inline-block" }}>
+            <div style={{ marginBottom: "30px", display: "inline-block" }}>
               <input
                 type="radio"
                 name="timePeriod"
                 value="years"
                 ref={register({ required: true })}
               />
-              <label className="radio" style={{ marginLeft: "10px" , fontSize:'18px' }}>
+              <label style={{ marginLeft: "10px" ,fontSize:'14px' }}>
                 Remain in effect for number of years
               </label>
               <Controller
@@ -71,10 +77,13 @@ const TimePeriod = (props) => {
                   <TextField
                     label="Years"
                     style={{
-                      marginLeft: "20px",
-                      width: "33%",
-                      marginTop: "10px",
+                      marginTop:"0",
+                      marginLeft: '20px',
+                      width: "35%",
                     }}
+                    InputLabelProps={{style: {fontSize: 13}}} // font size of input label
+                    InputProps={{style: {fontSize: 14}}} 
+                    size='small'
                     type="number"
                     bordered={false}
                     name="terminationYears"
@@ -92,7 +101,7 @@ const TimePeriod = (props) => {
                 value="occurance"
                 ref={register({ required: true })}
               />
-              <label style={{ marginLeft: "10px" , fontSize:'18px' }}>
+              <label style={{ marginLeft: "10px" ,fontSize:'14px' }}>
                 Remain in effect until a specific occurance
               </label>
               <Controller
@@ -102,6 +111,9 @@ const TimePeriod = (props) => {
                       style={{ marginTop:"0", width: "70%", marginLeft: '20px' }}
                       bordered={false}
                       name="terminationOccurence"
+                      InputLabelProps={{style: {fontSize: 13}}} // font size of input label
+                      InputProps={{style: {fontSize: 14}}} 
+                      size='small'
                     />
                   }
                   control={control}
@@ -146,22 +158,22 @@ const TimePeriod = (props) => {
           </div>
         </div>
       </form>
-    </>
+      </Col>
+      </Row>
+    </Container>
   );
 };
 export default TimePeriod;
 
-const timePeriodTip1 = (
-  <span style={{ color: "white", fontSize: "18px" }}>
+const timePeriodTip2 = (
+  <span style={{ color: "white", fontSize: "14px" }}>
     <b>What should the duration of my contract be?</b><br/> The usual time of protection for
     ordinary confidential information is 2 to 5 years which is what we suggest.
   </span>
 );
 
-const timePeriodTip2 = (
-  <span style={{ color: "white", fontSize: "18px" }}>
-    <b>How does relationship type affect my contract?</b><br/> Specifying working
-    relationship type between parties in the NDA helps to establish the purpose
-    of the Agreement.
+const timePeriodTip1 = (
+  <span style={{ color: "white", fontSize: "14px" }}>
+    <b>What does "survive it's termination" mean?</b><br/> To survive the termination of the Agreement means that there is no end date to keep the information secret.
   </span>
 );

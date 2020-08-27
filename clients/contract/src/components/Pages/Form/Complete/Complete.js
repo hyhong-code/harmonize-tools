@@ -4,6 +4,8 @@ import "./Complete.css";
 import { useForm } from "react-hook-form";
 import updateAction from "../../../../updateAction";
 import { useStateMachine } from "little-state-machine";
+import { Container, Row, Col } from "react-bootstrap";
+import Title from "../../../UI/Title/Title";
 
 const Complete = (props) => {
   const { state } = useStateMachine(updateAction);
@@ -12,11 +14,14 @@ const Complete = (props) => {
   });
 
   return (
-    <>
-      <Navigation />
+    <Container>
+      <Row>
+        <Col xs={3}><Navigation /></Col>
+      <Col>
       <div className="complete-container">
+        <Title />
         <div className="form-container">
-          <div style={{ marginTop: "5rem", marginBottom: "10px" }}>
+          <div style={{ marginTop: "1rem"}}>
             <h1 className="form-question">Download Complete!</h1>
             <br />
             <h3 className="sub-headings" syle={{ fontSize: "13px" }}>
@@ -24,16 +29,16 @@ const Complete = (props) => {
               signatures from both parties!
             </h3>
           </div>
-          <div style={{ marginTop: "2rem", marginBottom: "4rem" }}>
+          <div style={{ marginBottom: "2rem" }}>
             <button
               type="reset"
               className="Button"
-              style={{ marginLeft: "0", width: "240px" }}
+              style={{ marginLeft: "0", width: "190px" }}
               onClick={(e) => {
                 reset();
                 e.preventDefault();
                 window.STATE_MACHINE_RESET();
-                window.location.href = "/contract/landing";
+                window.location.href = "/landing";
               }}
             >
               Create another form
@@ -55,15 +60,15 @@ const Complete = (props) => {
 
           {/* Feeadback Form */}
           <div>
-            <div style={{ marginTop: "5rem"}}>
+            <div style={{ marginTop: "3rem"}}>
               <h3 className="sub-headings">
-                We are always trying to improve, help us make this tool better
+                We are always trying to improve. Help us make this tool better
                 by sending us feedback!
               </h3>
             </div>
             <button
               className="Button"
-              style={{ marginLeft: "0", width: "190px"}}
+              style={{ marginLeft: "0", width: "170px"}}
               onClick={(e) => {
                 e.preventDefault();
                 window.STATE_MACHINE_RESET();
@@ -75,7 +80,9 @@ const Complete = (props) => {
           </div>
         </div>
       </div>
-    </>
+      </Col>
+      </Row>
+    </Container>
   );
 };
 export default Complete;

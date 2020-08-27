@@ -6,7 +6,7 @@ export default function LandingPage() {
   const history = useHistory();
 
   const handleClick = () => {
-    history.push("/contract/getStarted");
+    history.push("/getStarted");
   };
 
   return (

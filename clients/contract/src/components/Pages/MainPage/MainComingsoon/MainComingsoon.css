@@ -11,13 +11,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 .comingsoon-section h2{
     font-family: Lora;
-    font-size: 2.25rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 
 
 .comingsoon-section p{
     font-family: Poppins;
-    font-size: 1.25rem;
+    font-size: 1rem;
     margin-bottom: 2rem;
 }

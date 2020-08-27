@@ -166,8 +166,11 @@ const Home = () => {
                 </div>
                 <p className="tool-link">Learn More &rarr;</p>
               </div>
-
-              <div
+              <div className="tool-card">
+                <div className="tool-title">Onboarding</div>
+                <div className="tool-msg">Launching soon!</div>
+              </div>
+              {/* <div
                 className="tool-card"
                 onClick={() => {
                   navigate("/onboarding", true);
@@ -181,7 +184,7 @@ const Home = () => {
                   <br />
                 </div>
                 <p className="tool-link">Learn More &rarr;</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

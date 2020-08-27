@@ -19,7 +19,7 @@ export default function MainHeader() {
                   few minutes using Harmonize's free contract building tool.
                 </p>
                 <div>
-                  <button className="call-to-action"><Link to="/contract/app">Try Now</Link></button>
+                  <button className="call-to-action"><Link to="/getStarted">Try Now</Link></button>
                 </div>
               </div>
             </div>

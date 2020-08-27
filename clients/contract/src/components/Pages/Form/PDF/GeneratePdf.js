@@ -25,20 +25,16 @@ export default function GeneratePdf() {
     push("/downloadTo");
   };
 
-  var partiesRelationship;
-  if(state.formDetails.relationship !== ""){
-    partiesRelationship = ` ${state.formDetails.relationship} .`
-  }else{
-    partiesRelationship = ""
-  }
+  // var partiesRelationship;
+  // if(state.formDetails.relationship !== ""){
+  //   partiesRelationship = ` ${state.formDetails.relationship} .`
+  // }else{
+  //   partiesRelationship = ""
+  // }
   // ************** Time Period ************** //
   var timePeriod;
   if (state.formDetails.timePeriod === "Survive its termination") {
-    timePeriod = `The non-disclosure provisions of this Agreement shall survive the termination
-    of this Agreement and Receiving Party's duty to hold Confidential Information in confidence shall
-    remain in effect until the Confidential Information no longer qualifies as a trade secret, in case of
-    trade secrets, or until Disclosing Party sends Receiving Party a written notice releasing Receiving
-    Party from this Agreement, whichever occurs first.\n\n`;
+    timePeriod = `The non-disclosure provisions of this Agreement shall survive the termination of this Agreement and Receiving Party's duty to hold Confidential Information in confidence shall remain in effect until the Confidential Information no longer qualifies as a trade secret, in case of trade secrets, or until Disclosing Party sends Receiving Party a written notice releasing Receiving Party from this Agreement, whichever occurs first.\n\n`;
   }
   if (state.formDetails.timePeriod === "years") {
     timePeriod = `The non- disclosure provisions of this Agreement shall remain in effect for ${state.formDetails.terminationYears} years from the date on which the Confidential Information was disclosed or otherwise made available to the Receiving Party. However, the Receiving Party’s obligation to protect trade secrets is perpetual. \n\n`;
@@ -65,7 +61,7 @@ export default function GeneratePdf() {
   }
   if (state.formDetails.confidentialityAll === "true") {
     confidentiality3a =
-      "The Disclosing Party herein, not the Receiving Party, is the records owner under state law and the Receiving Party has no right or ownership interest in any confidential information. The above Information shall be considered Confidential regardless of whether such Confidential Information has been expressly designated as confidential or proprietary.\n\n";
+      "The above Information shall be considered Confidential regardless of whether such Confidential Information has been expressly designated as confidential or proprietary.\n\n";
   }
 
   // ************** Confidentiality.3b ************** //
@@ -113,6 +109,8 @@ export default function GeneratePdf() {
     title: "NDA",
     // pageSize: 'A5',
     // pageMargins: [ 40, 60, 40, 60 ],
+    pageSize: 'A4',
+    pageMargins:72,
     watermark: {
       text: "PROOF PROOF",
       color: "black",
@@ -177,23 +175,23 @@ export default function GeneratePdf() {
           { text: "1.            Parties Relationship. ", bold: true },
           "The Disclosing Party’s relationship to the Receiving Party can be described as ",
           {
-            text: ` ${state.formDetails.discloserEntity} `,
+            text: ` ${state.formDetails.disclosingToReceiving} `,
             decoration: "underline",
             style: "userInput",
           },
           " and the Receiving Party’s relationship to the Disclosing Party can be described as ",
           {
-            text: ` ${state.formDetails.recipientEntity} `,
+            text: ` ${state.formDetails.receivingToDisclosing} `,
             decoration: "underline",
             style: "userInput",
           },
           ". ",
-          {
-            text: `${partiesRelationship}`,
-            decoration: "underline",
-            style: "userInput",
-          },
-          " \n\n",
+          // {
+          //   text: `${partiesRelationship}`,
+          //   decoration: "underline",
+          //   style: "userInput",
+          // },
+          // " \n\n",
         ],
       },
       {
@@ -208,13 +206,14 @@ export default function GeneratePdf() {
           "(c) information submitted by Disclosing Party’s customers, suppliers, employees, consultants or co-venture partners with Disclosing Party for study, evaluation or use; and\n\n",
           "(d) any other information not generally known to the public which, if misused or disclosed, could reasonably be expected to adversely affect the Disclosing Party’s business.",
           `${confidentiality2d}`,
-          "\n\nConfidential Information also includes any and all, work products, studies and other material which contain, include, refer to or otherwise reflect or are generated from any Confidential Information.\n\n",
+          "Confidential Information also includes any and all, work products, studies and other material which contain, include, refer to or otherwise reflect or are generated from any Confidential Information.\n\n",
         ],
       },
 
       {
         text: [
           { text: "3a.            Form of Disclosure. ", bold: true },
+          'The Disclosing Party herein, not the Receiving Party, is the records owner under state law and the Receiving Party has no right or ownership interest in any confidential information.\n\n',
           `${confidentiality3a}`,
         ],
       },
@@ -342,36 +341,38 @@ export default function GeneratePdf() {
           "IN WITNESS WHEREOF, the parties have executed this Agreement effective as of the Effective Date.\n\n",
           { text: "DISCLOSING PARTY \n\n", bold: true },
           "Signature _____________________________________________________\n\n",
-          "Typed or Printed Name",
-          {
-            text: `            ${state.formDetails.discloserName}            `,
-            decoration: "underline",
-            style: "userInput",
-          },
-          "Date: ",
-          {
-            text: `   ${state.formDetails.contractDate}   \n\n`,
-            decoration: "underline",
-            style: "userInput",
-          },
+          "Typed or Printed Name ________________________ Date:______________\n\n",
+          // "Typed or Printed Name",
+          // {
+          //   text: `            ${state.formDetails.discloserName}            `,
+          //   decoration: "underline",
+          //   style: "userInput",
+          // },
+          // "Date: ",
+          // {
+          //   text: `   ${state.formDetails.contractDate}   \n\n`,
+          //   decoration: "underline",
+          //   style: "userInput",
+          // },
         ],
       },
       {
         text: [
           { text: "RECEIVING PARTY \n\n", bold: true },
           "Signature _____________________________________________________\n\n",
-          "Typed or Printed Name",
-          {
-            text: `            ${state.formDetails.recipientName}            `,
-            decoration: "underline",
-            style: "userInput",
-          },
-          "Date: ",
-          {
-            text: `   ${state.formDetails.contractDate}   \n\n`,
-            decoration: "underline",
-            style: "userInput",
-          },
+          "Typed or Printed Name ________________________ Date:______________\n\n",
+          // "Typed or Printed Name",
+          // {
+          //   text: `            ${state.formDetails.recipientName}            `,
+          //   decoration: "underline",
+          //   style: "userInput",
+          // },
+          // "Date: ",
+          // {
+          //   text: `   ${state.formDetails.contractDate}   \n\n`,
+          //   decoration: "underline",
+          //   style: "userInput",
+          // },
         ],
       },
     ],
@@ -383,7 +384,7 @@ export default function GeneratePdf() {
       userInput: {
         fontSize: 11,
         bold: true,
-        lineHeight: 1.3,
+        lineHeight: 1,
       },
     },
   };
@@ -420,22 +421,22 @@ export default function GeneratePdf() {
                 positon: "absolute",
                 top: "0",
                 left: "0",
-                width: "100%",
-                height: "1000px",
+                width: "640px",
+                height: "800px",
               }}
             />
           </div>
 
           {/*********  Steps  *********/}
           <div
-            style={{ width: "880px", marginTop: "15px", marginBottom: "50px" }}
+            style={{ width: "680px", marginTop: "15px", marginBottom: "50px" }}
           >
             <div className="form-end"></div>
             <div style={{ marginTop: "15px" }}>
               <button className="Back-Button" onClick={onBackStep}>
                 Back
               </button>
-              <span className="btn" style={{ marginLeft: "320px" }}>
+              <span className="btn" style={{ marginLeft: "150px" }}>
                 <button className="Button" type="submit" onClick={DownloadPDF}>
                   Download
                 </button>

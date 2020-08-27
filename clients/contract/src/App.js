@@ -1,10 +1,11 @@
 import React from "react";
 import Header from "./components/UI/Header/Header";
+import MainPageNavbar from "./components/UI/MainPageNavbar/MainPageNavbar";
 import Footer from "./components/UI/Footer/Footer";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Redirect } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { StateMachineProvider, createStore } from "little-state-machine";
 import { DevTool } from "little-state-machine-devtools";
+import useHeaderToggle from "./hooks/useHeaderToggle";
 
 import LandingPage from "./components/Pages/LandingPage/LandingPage";
 import GetStarted from "./components/Pages/GetStarted/GetStarted";
@@ -20,7 +21,6 @@ import PDF from "./components/Pages/Form/PDF/PDF";
 import Complete from "./components/Pages/Form/Complete/Complete";
 
 import MainPage from "./components/Pages/MainPage/MainPage";
-
 
 createStore({
   formDetails: {
@@ -53,7 +53,9 @@ createStore({
     recipientAddressZipcode: "",
     // recipientPhone: "",
 
-    relationship: "",
+    // relationship: "",
+    disclosingToReceiving: "",
+    receivingToDisclosing: "",
 
     // Confidentiality
     confidentialityAll: false,
@@ -82,32 +84,37 @@ createStore({
 });
 
 function App() {
+  // Hook for toggling between 2 Navbars depends on what page user is on
+  const isMainPageHeader = useHeaderToggle();
+
   return (
     <StateMachineProvider>
       <DevTool />
-      <Router>
-        <Header />
-        <Switch>
-          <Route exact path="/contract" component={MainPage} />
-          <Route exact path="/contract/app" component={LandingPage} />
-          <Route exact path="/contract/getStarted" component={GetStarted} />
+      {isMainPageHeader ? <MainPageNavbar /> : <Header />}
+      <Switch>
+        {/* <Route exact path="/" component={LandingPage} /> */}
+        <Route exact path="/" component={MainPage} />
+        <Route exact path="/landing" component={LandingPage} />
+        <Route exact path="/getStarted" component={GetStarted} />
 
-          <Route exact path="/contract/general" component={General} />
-          <Route exact path="/contract/disclosing" component={Disclosing} />
-          <Route exact path="/contract/recieving" component={Recieving} />
-          <Route exact path="/contract/partiesRelationship" component={PartiesRelationship} />
-          <Route exact path="/contract/confidentiality" component={Confidentiality} />
-          <Route exact path="/contract/otherInformation" component={OtherInformation} />
-          <Route exact path="/contract/timePeriod" component={TimePeriod} />
+        <Route exact path="/general" component={General} />
+        <Route exact path="/disclosing" component={Disclosing} />
+        <Route exact path="/recieving" component={Recieving} />
+        <Route
+          exact
+          path="/partiesRelationship"
+          component={PartiesRelationship}
+        />
+        <Route exact path="/confidentiality" component={Confidentiality} />
+        <Route exact path="/otherInformation" component={OtherInformation} />
+        <Route exact path="/timePeriod" component={TimePeriod} />
 
-          <Route exact path="/contract/downloadTo" component={DownloadTO} />
-          <Route exact path="/contract/pdf" component={PDF} />
-          <Route exact path="/contract/complete" component={Complete} />
-
-          <Redirect from="/*" to="/contract" />
-        </Switch>
-        <Footer />
-      </Router>
+        <Route exact path="/downloadTo" component={DownloadTO} />
+        <Route exact path="/pdf" component={PDF} />
+        <Route exact path="/complete" component={Complete} />
+        <Redirect from="/*" to="/" />
+      </Switch>
+      <Footer />
     </StateMachineProvider>
   );
 }

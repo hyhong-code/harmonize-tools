@@ -5,6 +5,8 @@ import { useHistory } from "react-router-dom";
 import { useStateMachine } from "little-state-machine";
 import { TextField } from "@material-ui/core";
 import Navigation from "../../../Navigation/Navigation";
+import { Container, Row, Col } from "react-bootstrap";
+import Title from "../../../UI/Title/Title";
 
 const DownloadTo = (props) => {
   const { push } = useHistory();
@@ -15,19 +17,23 @@ const DownloadTo = (props) => {
 
   const onNextStep = (data) => {
     action(data);
-    push("/contract/pdf");
+    push("/pdf");
     console.log(data);
   };
 
   const onBackStep = (e) => {
     e.preventDefault();
-    push("/contract/timePeriod");
+    push("/timePeriod");
   };
 
   return (
-    <>
-      <Navigation />
+    <Container>
+      <Row>
+        <Col xs={3}><Navigation /></Col>
+
+      <Col>
       <form onSubmit={handleSubmit(onNextStep)}>
+        <Title />
         <div className="form-container">
           {/*********  Parties Relationship *********/}
           <div style={{ marginBottom: "40px" }}>
@@ -44,6 +50,9 @@ const DownloadTo = (props) => {
                   label="Ex. HarmonizeHQ"
                   style={{ width: "80%" }}
                   bordered={false}
+                  InputLabelProps={{style: {fontSize: 13}}} // font size of input label
+                  InputProps={{style: {fontSize: 14}}} 
+                  size='small'
                 />
               }
               control={control}
@@ -62,6 +71,9 @@ const DownloadTo = (props) => {
                 label="example@harmonizehq.com"
                 style={{ width: "80%" }}
                 bordered={false}
+                InputLabelProps={{style: {fontSize: 13}}} // font size of input label
+                InputProps={{style: {fontSize: 14}}} 
+                size='small'
               />
             }
             control={control}
@@ -85,7 +97,9 @@ const DownloadTo = (props) => {
           </div>
         </div>
       </form>
-    </>
+      </Col>
+      </Row>
+    </Container>
   );
 };
 

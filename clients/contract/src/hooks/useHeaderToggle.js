@@ -7,7 +7,7 @@ const useHeaderToggle = () => {
 
   useEffect(() => {
     // When user is on / route, display main page navbar
-    if (location.pathname === "/") {
+    if (location.pathname === "/contract/") {
       setMainPageNavbar(true);
     } else {
       setMainPageNavbar(false);

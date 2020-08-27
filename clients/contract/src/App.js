@@ -6,6 +6,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { StateMachineProvider, createStore } from "little-state-machine";
 import { DevTool } from "little-state-machine-devtools";
 import useHeaderToggle from "./hooks/useHeaderToggle";
+import useRedirect from "./hooks/useRedirect";
 
 import LandingPage from "./components/Pages/LandingPage/LandingPage";
 import GetStarted from "./components/Pages/GetStarted/GetStarted";
@@ -87,32 +88,40 @@ function App() {
   // Hook for toggling between 2 Navbars depends on what page user is on
   const isMainPageHeader = useHeaderToggle();
 
+  useRedirect();
+
   return (
     <StateMachineProvider>
       <DevTool />
       {isMainPageHeader ? <MainPageNavbar /> : <Header />}
       <Switch>
         {/* <Route exact path="/" component={LandingPage} /> */}
-        <Route exact path="/" component={MainPage} />
-        <Route exact path="/landing" component={LandingPage} />
-        <Route exact path="/getStarted" component={GetStarted} />
-
-        <Route exact path="/general" component={General} />
-        <Route exact path="/disclosing" component={Disclosing} />
-        <Route exact path="/recieving" component={Recieving} />
+        <Route exact path="/contract" component={MainPage} />
+        <Route exact path="/contract/landing" component={LandingPage} />
+        <Route exact path="/contract/getStarted" component={GetStarted} />
+        <Route exact path="/contract/general" component={General} />
+        <Route exact path="/contract/disclosing" component={Disclosing} />
+        <Route exact path="/contract/recieving" component={Recieving} />
         <Route
           exact
-          path="/partiesRelationship"
+          path="/contract/partiesRelationship"
           component={PartiesRelationship}
         />
-        <Route exact path="/confidentiality" component={Confidentiality} />
-        <Route exact path="/otherInformation" component={OtherInformation} />
-        <Route exact path="/timePeriod" component={TimePeriod} />
-
-        <Route exact path="/downloadTo" component={DownloadTO} />
-        <Route exact path="/pdf" component={PDF} />
-        <Route exact path="/complete" component={Complete} />
-        <Redirect from="/*" to="/" />
+        <Route
+          exact
+          path="/contract/confidentiality"
+          component={Confidentiality}
+        />
+        <Route
+          exact
+          path="/contract/otherInformation"
+          component={OtherInformation}
+        />
+        <Route exact path="/contract/timePeriod" component={TimePeriod} />
+        <Route exact path="/contract/downloadTo" component={DownloadTO} />
+        <Route exact path="/contract/pdf" component={PDF} />
+        <Route exact path="/contract/complete" component={Complete} />
+        <Redirect from="/contract/*" to="/" />
       </Switch>
       <Footer />
     </StateMachineProvider>

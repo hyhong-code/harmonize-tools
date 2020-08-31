@@ -29,7 +29,7 @@ export default function Navigation() {
 
               <li className={location.pathname === "/recieving" ? "active" : ""}>
                 <Link className="sidebar-item" to="/recieving">
-                  Recieving Party
+                Receiving Party
                 </Link>
               </li>
 

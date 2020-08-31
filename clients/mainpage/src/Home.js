@@ -76,10 +76,8 @@ const Home = () => {
                         <a target="_blank" rel="noreferrer" href="/contract">
                           Contract Generator
                         </a>
-
-                        <a target="_blank" rel="noreferrer" href="/onboarding">
-                          Onboarding
-                        </a>
+                        
+                        <a href="#!">Onboarding</a>
                       </div>
                     </div>
                   )}

@@ -36,15 +36,15 @@ const Topbar = ({
         <div className="d-flex">
           <div className="topbar-actions">
             {user ? (
-              <button onClick={logout} className="mr-2 signin-btn">
+              <button onClick={logout} className="mr-2 signup-btn">
                 <i class="fas fa-sign-out-alt"></i> Sign Out
               </button>
             ) : (
               <Fragment>
-                <a href="/login" className="mr-2 signup-btn">
+                <a href="/login" className="mr-2 signin-btn">
                   Sign In
                 </a>
-                <a href="/signup" className="signin-btn">
+                <a href="/signup" className="signup-btn">
                   Sign Up
                 </a>
               </Fragment>

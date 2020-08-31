@@ -61,8 +61,10 @@ const _Navbar = () => {
                       <a target="_blank" rel="noreferrer" href="/orgchart">
                         Organizational Chart
                       </a>
-                      <a href="">Contract Generator</a>
-                      <a href="">Onboarding</a>
+                      <a target="_blank" rel="noreferrer" href="/contract">
+                        Contract Generator
+                      </a>
+                      <a href="#!">Onboarding</a>
                     </div>
                   </div>
                 )}

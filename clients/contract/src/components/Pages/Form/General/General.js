@@ -11,22 +11,34 @@ import { Select } from "antd";
 import "antd/dist/antd.css";
 import { Container, Row, Col } from "react-bootstrap";
 import Title from "../../../UI/Title/Title";
+import { Popover } from "antd";
 const { Option } = Select;
 
-  const tip1 = (
-    <span style={{ color: "white", fontSize: '14px'}}>
-      <b>How is the form created?</b> <br/>Your response to each question determines
-      what goes into your customized contract. Make sure to fill out all fields
-      so we can help you put everything together!<br /> <br />You can find out the
-      additional information throughout by hovering over <b>"i"</b> icon.{" "}
-      <Tooltip /> 
-    </span>
-  ); 
+const tip1 = (
+  <span style={{ color: "white", fontSize: "14px" }}>
+    <b>How is the form created?</b> <br />
+    Your response to each question determines what goes into your customized
+    contract. Make sure to fill out all fields so we can help you put everything
+    together!
+    <br /> <br />
+    You can find out the additional information throughout by hovering over{" "}
+    <b>"i"</b> icon. <Tooltip />
+  </span>
+);
 
 const tip2 = (
   <span style={{ color: "white", fontSize: "14px" }}>
     <b>Which jurisdiction am I under?</b> <br />
-    Parties usually prefer that the jurisdiction be based on their location or the location of their headquarters. It can save the time and the money to set in the contract as opposed to letting the court decide the jurisdiction.
+    Parties usually prefer that the jurisdiction be based on their location or
+    the location of their headquarters. It can save the time and the money to
+    set in the contract as opposed to letting the court decide the jurisdiction.
+  </span>
+);
+
+const tip3 = (
+  <span style={{ color: "white", fontSize: "14px" }}>
+    Click <b>Next</b> to save your entries!
+    <Tooltip />
   </span>
 );
 
@@ -63,7 +75,7 @@ export default () => {
                   This Non-Disclosure Agreement does not cover healthcare
                   personnel, employees and professsionals who have access to
                   medical information.
-                   <Tooltip placement="right" visible={true} tips={tip1}/>
+                  <Tooltip placement="right" visible={true} tips={tip1} />
                 </h1>
                 {errors.formType && (
                   <p className="required">This is required.</p>
@@ -121,7 +133,7 @@ export default () => {
                         width: "40%",
                         marginTop: "5px",
                       }}
-                      InputProps={{style: {fontSize: 14}}} 
+                      InputProps={{ style: { fontSize: 14 } }}
                       name="contractDate"
                       id="date"
                       type="date"
@@ -131,7 +143,6 @@ export default () => {
                       inputRef={register}
                       bordered="false"
                     />
-                    
                   }
                 />
               </div>
@@ -152,57 +163,57 @@ export default () => {
                   bordered={false}
                   as={
                     <Select rules={{ required: true }} className="SelectState">
-                      <Option value="AL">Alabama</Option>
-                      <Option value="AK">Alaska</Option>
-                      <Option value="AZ">Arizona</Option>
-                      <Option value="AR">Arkansas</Option>
-                      <Option value="CA">California</Option>
-                      <Option value="CO">Colorado</Option>
-                      <Option value="CT">Connecticut</Option>
-                      <Option value="DE">Delaware</Option>
-                      <Option value="DC">District Of Columbia</Option>
-                      <Option value="FL">Florida</Option>
-                      <Option value="GA">Georgia</Option>
-                      <Option value="HI">Hawaii</Option>
-                      <Option value="ID">Idaho</Option>
-                      <Option value="IL">Illinois</Option>
-                      <Option value="IN">Indiana</Option>
-                      <Option value="IA">Iowa</Option>
-                      <Option value="KS">Kansas</Option>
-                      <Option value="KY">Kentucky</Option>
-                      <Option value="LA">Louisiana</Option>
-                      <Option value="ME">Maine</Option>
-                      <Option value="MD">Maryland</Option>
-                      <Option value="MA">Massachusetts</Option>
-                      <Option value="MI">Michigan</Option>
-                      <Option value="MN">Minnesota</Option>
-                      <Option value="MS">Mississippi</Option>
-                      <Option value="MO">Missouri</Option>
-                      <Option value="MT">Montana</Option>
-                      <Option value="NE">Nebraska</Option>
-                      <Option value="NV">Nevada</Option>
-                      <Option value="NH">New Hampshire</Option>
-                      <Option value="NJ">New Jersey</Option>
-                      <Option value="NM">New Mexico</Option>
-                      <Option value="NY">New York</Option>
-                      <Option value="NC">North Carolina</Option>
-                      <Option value="ND">North Dakota</Option>
-                      <Option value="OH">Ohio</Option>
-                      <Option value="OK">Oklahoma</Option>
-                      <Option value="OR">Oregon</Option>
-                      <Option value="PA">Pennsylvania</Option>
-                      <Option value="RI">Rhode Island</Option>
-                      <Option value="SC">South Carolina</Option>
-                      <Option value="SD">South Dakota</Option>
-                      <Option value="TN">Tennessee</Option>
-                      <Option value="TX">Texas</Option>
-                      <Option value="UT">Utah</Option>
-                      <Option value="VT">Vermont</Option>
-                      <Option value="VA">Virginia</Option>
-                      <Option value="WA">Washington</Option>
-                      <Option value="WV">West Virginia</Option>
-                      <Option value="WI">Wisconsin</Option>
-                      <Option value="WY">Wyoming</Option>
+                      <Option value="Alabama">Alabama</Option>
+                      <Option value="Alaska">Alaska</Option>
+                      <Option value="Arizona">Arizona</Option>
+                      <Option value="Arkansas">Arkansas</Option>
+                      <Option value="California">California</Option>
+                      <Option value="Colorado">Colorado</Option>
+                      <Option value="Connecticut">Connecticut</Option>
+                      <Option value="Delaware">Delaware</Option>
+                      <Option value="District Of Columbia">District Of Columbia</Option>
+                      <Option value="Florida">Florida</Option>
+                      <Option value="Georgia">Georgia</Option>
+                      <Option value="Hawaii">Hawaii</Option>
+                      <Option value="Idaho">Idaho</Option>
+                      <Option value="Illinois">Illinois</Option>
+                      <Option value="Indiana">Indiana</Option>
+                      <Option value="Iowa">Iowa</Option>
+                      <Option value="Kansas">Kansas</Option>
+                      <Option value="Kentucky">Kentucky</Option>
+                      <Option value="Louisiana">Louisiana</Option>
+                      <Option value="Maine">Maine</Option>
+                      <Option value="Maryland">Maryland</Option>
+                      <Option value="Massachusetts">Massachusetts</Option>
+                      <Option value="Michigan">Michigan</Option>
+                      <Option value="Minnesota">Minnesota</Option>
+                      <Option value="Mississippi">Mississippi</Option>
+                      <Option value="Missouri">Missouri</Option>
+                      <Option value="Montana">Montana</Option>
+                      <Option value="Nebraska">Nebraska</Option>
+                      <Option value="Nevada">Nevada</Option>
+                      <Option value="New Hampshire">New Hampshire</Option>
+                      <Option value="New Jersey">New Jersey</Option>
+                      <Option value="New Mexico">New Mexico</Option>
+                      <Option value="New York">New York</Option>
+                      <Option value="North Carolina">North Carolina</Option>
+                      <Option value="North Dakota">North Dakota</Option>
+                      <Option value="Ohio">Ohio</Option>
+                      <Option value="Oklahoma">Oklahoma</Option>
+                      <Option value="Oregon">Oregon</Option>
+                      <Option value="Pennsylvania">Pennsylvania</Option>
+                      <Option value="Rhode Island">Rhode Island</Option>
+                      <Option value="South Carolina">South Carolina</Option>
+                      <Option value="South Dakota">South Dakota</Option>
+                      <Option value="Tennessee">Tennessee</Option>
+                      <Option value="Texas">Texas</Option>
+                      <Option value="Utah">Utah</Option>
+                      <Option value="Vermont">Vermont</Option>
+                      <Option value="Virginia">Virginia</Option>
+                      <Option value="Washington">Washington</Option>
+                      <Option value="West Virginia">West Virginia</Option>
+                      <Option value="Wisconsin">Wisconsin</Option>
+                      <Option value="Wyoming">Wyoming</Option>
                     </Select>
                   }
                 />
@@ -216,9 +227,16 @@ export default () => {
                     Back
                   </button>
                   <span className="btn">
-                    <button className="Button" type="submit">
-                      Next
-                    </button>
+                    <Popover
+                      style={{ backgroundColor: "red" }}
+                      placement="topLeft"
+                      defaultVisible={true}
+                      content={tip3}
+                    >
+                      <button className="Button" type="submit">
+                        Next
+                      </button>
+                    </Popover>
                   </span>
                 </div>
               </div>

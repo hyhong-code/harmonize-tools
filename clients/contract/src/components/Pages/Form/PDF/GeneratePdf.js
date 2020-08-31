@@ -37,18 +37,18 @@ export default function GeneratePdf() {
     timePeriod = `The non-disclosure provisions of this Agreement shall survive the termination of this Agreement and Receiving Party's duty to hold Confidential Information in confidence shall remain in effect until the Confidential Information no longer qualifies as a trade secret, in case of trade secrets, or until Disclosing Party sends Receiving Party a written notice releasing Receiving Party from this Agreement, whichever occurs first.\n\n`;
   }
   if (state.formDetails.timePeriod === "years") {
-    timePeriod = `The non- disclosure provisions of this Agreement shall remain in effect for ${state.formDetails.terminationYears} years from the date on which the Confidential Information was disclosed or otherwise made available to the Receiving Party. However, the Receiving Party’s obligation to protect trade secrets is perpetual. \n\n`;
+    timePeriod = `The non-disclosure provisions of this Agreement shall remain in effect for ${state.formDetails.terminationYears} years from the date on which the Confidential Information was disclosed or otherwise made available to the Receiving Party. However, the Receiving Party’s obligation to protect trade secrets is perpetual. \n\n`;
   }
 
   if (state.formDetails.timePeriod === "occurance") {
-    timePeriod = `The non- disclosure provisions of this Agreement shall remain in effect until ${state.formDetails.terminationOccurence.toLowerCase()}. However, the Receiving Party’s obligation to protect trade secrets is perpetual. \n\n`;
+    timePeriod = `The non-disclosure provisions of this Agreement shall remain in effect until ${state.formDetails.terminationOccurence.toLowerCase()}. However, the Receiving Party’s obligation to protect trade secrets is perpetual. \n\n`;
   }
 
   // ************** Confidential Information.2d ************** //
 
   var confidentiality2d;
   if (state.formDetails.otherInformation !== "") {
-    confidentiality2d = ` Such as ${state.formDetails.otherInformation}.\n\n`;
+    confidentiality2d = ` ${state.formDetails.otherInformation}.`;
   }else{
     confidentiality2d="";
   }
@@ -185,7 +185,7 @@ export default function GeneratePdf() {
             decoration: "underline",
             style: "userInput",
           },
-          ". ",
+          ".\n\n",
           // {
           //   text: `${partiesRelationship}`,
           //   decoration: "underline",
@@ -204,9 +204,9 @@ export default function GeneratePdf() {
           "(a) technical and business information concerning Disclosing Party’s trade secrets, products and services, including product know-how, formulas, designs, devices, diagrams, software code, test results, processes, inventions, research projects and product development, technical memoranda and correspondence, cost information, profits, sales information, accounting and unpublished financial information, business plans, markets and marketing methods, customer lists and customer information, purchasing techniques, supplier lists and supplier information and advertising strategies;\n\n",
           "(b) information concerning Disclosing Party’s employees, including salaries, strengths, weaknesses, and skills;\n\n",
           "(c) information submitted by Disclosing Party’s customers, suppliers, employees, consultants or co-venture partners with Disclosing Party for study, evaluation or use; and\n\n",
-          "(d) any other information not generally known to the public which, if misused or disclosed, could reasonably be expected to adversely affect the Disclosing Party’s business.",
+          `(d) any other information not generally known to the public which, if misused or disclosed, could reasonably be expected to adversely affect the Disclosing Party’s business.`,
           `${confidentiality2d}`,
-          "Confidential Information also includes any and all, work products, studies and other material which contain, include, refer to or otherwise reflect or are generated from any Confidential Information.\n\n",
+          "\n\nConfidential Information also includes any and all, work products, studies and other material which contain, include, refer to or otherwise reflect or are generated from any Confidential Information.\n\n",
         ],
       },
 
@@ -273,44 +273,44 @@ export default function GeneratePdf() {
       },
       {
         text: [
-          { text: "10.            No Waiver. ", bold: true },
+          { text: "10.           No Waiver. ", bold: true },
           "The failure to exercise any right provided in this Agreement shall not constitute a waiver of prior or subsequent rights.\n\n",
         ],
       },
       {
         text: [
-          { text: "11.            Injunctive Relief. ", bold: true },
+          { text: "11.           Injunctive Relief. ", bold: true },
           "The Parties acknowledge and agree that due to the unique and sensitive nature of the Confidential Information, any misappropriation of any of the Confidential Information in violation of this Agreement may cause the Disclosing Party irreparable harm, the amount of which may be difficult or impossible to ascertain, and therefore the Receiving Party agrees that the Disclosing Party shall have the right to apply to a court of competent jurisdiction for an order enjoining any such further misappropriation and for such other relief as the Disclosing Party deems appropriate. This right is to be in addition to the remedies otherwise available to the Disclosing Party.\n\n",
         ],
       },
       {
         text: [
-          { text: "12.            Indemnity. ", bold: true },
+          { text: "12.           Indemnity. ", bold: true },
           "The Receiving Party agrees to indemnify the Disclosing Party against any and all losses, damages, claims or expenses incurred or suffered by the Disclosing Party as a result of the Receiving Party breach of this Agreement. The Receiving Party is aware that financial indemnification may not be sufficient and accepts other remedies.\n\n",
         ],
       },
       {
         text: [
-          { text: "13.            Attorney Fees and Expenses. ", bold: true },
+          { text: "13.           Attorney Fees and Expenses. ", bold: true },
           "In a dispute arising out of or related to this Agreement, the prevailing party shall have the right to collect from the other party its reasonable attorney fees and costs and necessary expenditures.\n\n",
         ],
       },
       {
         text: [
-          { text: "14.            Notice of Immunity. ", bold: true },
+          { text: "14.           Notice of Immunity. ", bold: true },
           "The Receiving Party is provided notice that an individual shall not be held criminally or civilly liable under any federal or state trade secret law for the disclosure of a trade secret that is made (i) in confidence to a federal, state, or local government official, either directly or indirectly, or to an attorney; and (ii) solely for the purpose of reporting or investigating a suspected violation of law; or is made in a complaint or other document filed in a lawsuit or other proceeding, if such filing is made under seal. An individual who files a lawsuit for retaliation by an employer for reporting a suspected violation of law may disclose the trade secret to the attorney of the individual and use the trade secret information in the court proceeding, if the individual (i) files any document containing the trade secret under seal; and (ii) does not disclose the trade secret, except pursuant to court order.\n\n",
         ],
       },
       {
         text: [
-          { text: "15.             Disclosures required by law. ", bold: true },
+          { text: "15.            Disclosures required by law. ", bold: true },
           "The Receiving Party may disclose Confidential Information as required to comply with binding orders of governmental entities that have jurisdiction over him or her; provided that the Receiving Party (i) unless prohibited by law, gives the Disclosing Party reasonable written notice to allow the Disclosing Party to seek a protective order or other appropriate remedy, and (ii) discloses only such information as is required by the governmental entity.  \n\n",
         ],
       },
       {
         text: [
           {
-            text: "16.            Governing Law and Jurisdiction. ",
+            text: "16.           Governing Law and Jurisdiction. ",
             bold: true,
           },
           "The validity, construction and performance of this Agreement shall be governed and construed in accordance with the laws of ",
@@ -330,7 +330,7 @@ export default function GeneratePdf() {
       },
       {
         text: [
-          { text: "17.            Counterparts. ", bold: true },
+          { text: "17.           Counterparts. ", bold: true },
           "This Agreement may be executed in one or more counterparts for the convenience of the parties hereto, each of which shall be deemed an original and all of which together will constitute one and the same instrument. Delivery of an executed counterpart of a signature page to this Agreement by facsimile or via portable document format (pdf) shall be effective as delivery of a mutually executed counterpart to this Agreement. \n\n",
           "The Receiving Party has carefully read all of this Agreement and agrees that all of the restrictions set forth are fair and reasonably required to protect the Disclosing Party’s interests. The Receiving Party has received a copy of this Agreement signed by the parties.\n\n",
           "This Agreement and each party's obligations shall be binding on the representatives, assigns and successors of such party. Each party has signed this Agreement through its authorized representative.\n\n",
@@ -338,7 +338,7 @@ export default function GeneratePdf() {
       },
       {
         text: [
-          "IN WITNESS WHEREOF, the parties have executed this Agreement effective as of the Effective Date.\n\n",
+          "\n\nIN WITNESS WHEREOF, the parties have executed this Agreement effective as of the Effective Date.\n\n",
           { text: "DISCLOSING PARTY \n\n", bold: true },
           "Signature _____________________________________________________\n\n",
           "Typed or Printed Name ________________________ Date:______________\n\n",
@@ -358,9 +358,9 @@ export default function GeneratePdf() {
       },
       {
         text: [
-          { text: "RECEIVING PARTY \n\n", bold: true },
+          { text: "\n\nRECEIVING PARTY \n\n", bold: true },
           "Signature _____________________________________________________\n\n",
-          "Typed or Printed Name ________________________ Date:______________\n\n",
+          "Typed or Printed Name ________________________ Date:______________",
           // "Typed or Printed Name",
           // {
           //   text: `            ${state.formDetails.recipientName}            `,

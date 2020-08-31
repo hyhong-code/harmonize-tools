@@ -1,6 +1,8 @@
 .external-link{
     color: #E07C00;
     text-decoration-line: underline;
+    border-width: 0 0 1px;
+    text-underline-position: under;
     font-size: 0.9 rem;
 }
 .external-link:hover{

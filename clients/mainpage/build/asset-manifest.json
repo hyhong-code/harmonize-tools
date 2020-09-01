@@ -1,22 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.847dbad8.chunk.css",
-    "main.js": "/static/js/main.05690d8a.chunk.js",
-    "main.js.map": "/static/js/main.05690d8a.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.9768d8fd.js",
-    "runtime-main.js.map": "/static/js/runtime-main.9768d8fd.js.map",
-    "static/js/2.39382d09.chunk.js": "/static/js/2.39382d09.chunk.js",
-    "static/js/2.39382d09.chunk.js.map": "/static/js/2.39382d09.chunk.js.map",
+    "main.css": "/static/css/main.4938e564.chunk.css",
+    "main.js": "/static/js/main.c5b62d39.chunk.js",
+    "main.js.map": "/static/js/main.c5b62d39.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c4a7ca78.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c4a7ca78.js.map",
+    "static/js/2.c53118e3.chunk.js": "/static/js/2.c53118e3.chunk.js",
+    "static/js/2.c53118e3.chunk.js.map": "/static/js/2.c53118e3.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.a7268cf981c9a4c50410cb472c8167da.js": "/precache-manifest.a7268cf981c9a4c50410cb472c8167da.js",
+    "precache-manifest.752c9cd7b75f56adf24a96d73061665e.js": "/precache-manifest.752c9cd7b75f56adf24a96d73061665e.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.847dbad8.chunk.css.map": "/static/css/main.847dbad8.chunk.css.map",
-    "static/js/2.39382d09.chunk.js.LICENSE.txt": "/static/js/2.39382d09.chunk.js.LICENSE.txt"
+    "static/css/main.4938e564.chunk.css.map": "/static/css/main.4938e564.chunk.css.map",
+    "static/js/2.c53118e3.chunk.js.LICENSE.txt": "/static/js/2.c53118e3.chunk.js.LICENSE.txt",
+    "static/media/facebook.029cb578.svg": "/static/media/facebook.029cb578.svg",
+    "static/media/google.755d67c3.svg": "/static/media/google.755d67c3.svg",
+    "static/media/linkedin.0cdadc73.svg": "/static/media/linkedin.0cdadc73.svg",
+    "static/media/medium.ea5fcf4a.svg": "/static/media/medium.ea5fcf4a.svg",
+    "static/media/twitter.5315eede.svg": "/static/media/twitter.5315eede.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.9768d8fd.js",
-    "static/js/2.39382d09.chunk.js",
-    "static/css/main.847dbad8.chunk.css",
-    "static/js/main.05690d8a.chunk.js"
+    "static/js/runtime-main.c4a7ca78.js",
+    "static/js/2.c53118e3.chunk.js",
+    "static/css/main.4938e564.chunk.css",
+    "static/js/main.c5b62d39.chunk.js"
   ]
 }

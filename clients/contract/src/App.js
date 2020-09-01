@@ -20,6 +20,7 @@ import TimePeriod from "./components/Pages/Form/TimePeriod/TimePeriod";
 import DownloadTO from "./components/Pages/Form/DownloadTo/DownloadTo";
 import PDF from "./components/Pages/Form/PDF/PDF";
 import Complete from "./components/Pages/Form/Complete/Complete";
+import path from "./utils/path";
 
 import MainPage from "./components/Pages/MainPage/MainPage";
 
@@ -96,32 +97,34 @@ function App() {
       {isMainPageHeader ? <MainPageNavbar /> : <Header />}
       <Switch>
         {/* <Route exact path="/" component={LandingPage} /> */}
-        <Route exact path="/contract" component={MainPage} />
-        <Route exact path="/contract/landing" component={LandingPage} />
-        <Route exact path="/contract/getStarted" component={GetStarted} />
-        <Route exact path="/contract/general" component={General} />
-        <Route exact path="/contract/disclosing" component={Disclosing} />
-        <Route exact path="/contract/recieving" component={Recieving} />
+        <Route exact path={path("/")} component={MainPage} />
+        <Route exact path={path("/landing")} component={LandingPage} />
+        <Route exact path={path("/getStarted")} component={GetStarted} />
+        <Route exact path={path("/general")} component={General} />
+        <Route exact path={path("/disclosing")} component={Disclosing} />
+        <Route exact path={path("/recieving")} component={Recieving} />
         <Route
           exact
-          path="/contract/partiesRelationship"
+          path={path("/partiesRelationship")}
           component={PartiesRelationship}
         />
         <Route
           exact
-          path="/contract/confidentiality"
+          path={path("/confidentiality")}
           component={Confidentiality}
         />
         <Route
           exact
-          path="/contract/otherInformation"
+          path={path("/otherInformation")}
           component={OtherInformation}
         />
-        <Route exact path="/contract/timePeriod" component={TimePeriod} />
-        <Route exact path="/contract/downloadTo" component={DownloadTO} />
-        <Route exact path="/contract/pdf" component={PDF} />
-        <Route exact path="/contract/complete" component={Complete} />
-        <Redirect from="/contract/*" to="/" />
+        <Route exact path={path("/timePeriod")} component={TimePeriod} />
+        <Route exact path={path("/downloadTo")} component={DownloadTO} />
+        <Route exact path={path("/pdf")} component={PDF} />
+        <Route exact path={path("/complete")} component={Complete} />
+        {process.env.NODE_ENV === "production" && (
+          <Redirect from="/contract/*" to="/contract" />
+        )}
       </Switch>
       <Footer />
     </StateMachineProvider>

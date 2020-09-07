@@ -54,17 +54,6 @@ const Guide = () => {
             If you'd like to return to your chart at a later date or create
             multiple charts, you can sign in to save and load your charts.
           </p>
-          {/* <div className="start">
-            <button
-              className="step-one-continue"
-              onClick={() => {
-                dispatch(closeToolTips());
-                dispatch(setToolTipSteps(1));
-              }}
-            >
-              I'm Ready
-            </button>
-          </div> */}
         </div>
       )}
       <div className="actions">

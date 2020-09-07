@@ -1,14 +1,14 @@
 @import "../../Custom.scss";
 
 .employee-card {
-  width: 12rem;
+  // width: 12rem;
   padding: 0.8rem 0.8rem;
   background-color: #fff;
   position: absolute;
   top: 7rem;
   right: 2rem;
   z-index: 10;
-  border-radius: 5px;
+  border-radius: 15px;
   box-shadow: 0 3px 7px rgba(#000, 0.2);
   transform: translateY(-500px);
   opacity: 0;

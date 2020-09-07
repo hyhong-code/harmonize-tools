@@ -19,9 +19,11 @@
   height: 623px;
   z-index: 5001;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   transform: translateX(-50%) translateY(-150vh);
   transition: transform 0.3s ease;
+  border-radius: 20px;
+  overflow: hidden;
 
   &.loading {
     transform: translateX(-50%) translateY(-50%);
@@ -122,11 +124,11 @@
         }
 
         &.start {
-          background-color: lighten(#441eae, 10);
+          background-color: lighten($main-color, 15);
         }
 
         &.skip {
-          background-color: #6c63ff;
+          background-color: $secondary-color;
         }
       }
     }

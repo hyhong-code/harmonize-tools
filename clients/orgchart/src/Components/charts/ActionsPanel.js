@@ -1,6 +1,15 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { connect } from "react-redux";
-import { ListGroup, Dropdown, DropdownButton } from "react-bootstrap";
+
+import { List, ListItem, Typography } from "@material-ui/core";
+import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
+import GridOnIcon from "@material-ui/icons/GridOn";
+import BuildIcon from "@material-ui/icons/Build";
+import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf";
+import ImageIcon from "@material-ui/icons/Image";
+import GetAppIcon from "@material-ui/icons/GetApp";
+import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
+import BackupIcon from "@material-ui/icons/Backup";
 
 import {
   createChart,
@@ -20,7 +29,6 @@ import { openToolTips } from "../../actions/tooltipActions";
 import "./ActionsPanel.scss";
 
 const EmployeeInfoPanel = ({
-  sideDrawer,
   user,
   createChart,
   loadCharts,
@@ -73,149 +81,192 @@ const EmployeeInfoPanel = ({
       <div
         className={`employee-card ${showWidget ? "employee-card-show" : ""}`}
       >
-        {/* <div className="employee-card-close">
-        <i className="fas fa-times"></i>
-      </div> */}
         <div className="selected-employee">
           {user && <p className="name">Welcome, {user.name}</p>}
         </div>
-        <ListGroup className="action-list">
-          <ListGroup.Item
-            className="action-item"
-            as="button"
-            action
+        <List style={{ border: "1px solid #ddd", borderRadius: 10 }}>
+          <ListItem
+            button
+            style={{
+              paddingTop: 5,
+              paddingBottom: 5,
+            }}
             onClick={openToolTips}
           >
-            <i class="far fa-play-circle"></i> Getting Started
-          </ListGroup.Item>
-          <ListGroup.Item
-            className={`action-item ${
-              tooltip.open && tooltip.step === 1 ? "tooltip-selected" : ""
-            }`}
-            as="button"
-            action
+            <PlayCircleOutlineIcon style={{ fontSize: 18, marginRight: 8 }} />
+            <Typography
+              style={{
+                margin: 0,
+                fontSize: "0.7rem",
+                fontWeight: 400,
+                color: "#333",
+              }}
+            >
+              Getting Started
+            </Typography>
+          </ListItem>
+          <ListItem
+            button
+            style={{
+              paddingTop: 5,
+              paddingBottom: 5,
+              backgroundColor:
+                tooltip.open && tooltip.step === 1 ? "#f1ecfb" : undefined,
+            }}
             onClick={openSideDrawer}
           >
-            <i class="mr-1 fas fa-file-csv"></i> Import data from CSV
-          </ListGroup.Item>
-          <ListGroup.Item
-            className={`action-item ${
-              tooltip.open && tooltip.step === 2 ? "tooltip-selected" : ""
-            }`}
-            as="button"
-            action
+            <GridOnIcon style={{ fontSize: 18, marginRight: 8 }} />
+            <Typography
+              style={{
+                margin: 0,
+                fontSize: "0.7rem",
+                fontWeight: 400,
+                color: "#333",
+              }}
+            >
+              Import from CSV
+            </Typography>
+          </ListItem>
+
+          <ListItem
+            button
+            style={{
+              paddingTop: 5,
+              paddingBottom: 5,
+              backgroundColor:
+                tooltip.open && (tooltip.step === 2 || tooltip.step === 3)
+                  ? "#f1ecfb"
+                  : undefined,
+            }}
             onClick={() => setNewChartPopupShow(true)}
           >
-            <i class="mr-1 fas fa-wrench"></i> New chart
-          </ListGroup.Item>
-          <div
-            className={`download-wrapper ${
-              tooltip.open && tooltip.step === 4 ? "tooltip-selected" : ""
-            }`}
+            <BuildIcon style={{ fontSize: 18, marginRight: 8 }} />
+            <Typography
+              style={{
+                margin: 0,
+                fontSize: "0.7rem",
+                fontWeight: 400,
+                color: "#333",
+              }}
+            >
+              New Chart
+            </Typography>
+          </ListItem>
+          <ListItem
+            button
+            style={{
+              paddingTop: 5,
+              paddingBottom: 5,
+              backgroundColor:
+                tooltip.open && tooltip.step === 4 ? "#f1ecfb" : undefined,
+            }}
+            onClick={() => handleExport("CSV")}
           >
-            <ListGroup.Item
-              onClick={() => handleExport("CSV")}
-              className={`action-item`}
-              as="button"
-              action
+            <GetAppIcon style={{ fontSize: 18, marginRight: 8 }} />
+            <Typography
+              style={{
+                margin: 0,
+                fontSize: "0.7rem",
+                fontWeight: 400,
+                color: "#333",
+              }}
             >
-              <i class="fas fa-file-csv"></i> Download as CSV
-            </ListGroup.Item>
-            <ListGroup.Item
-              onClick={() => handleExport("PDF")}
-              className={`action-item`}
-              as="button"
-              action
-            >
-              <i class="fas fa-file-pdf"></i> Download as PDF
-            </ListGroup.Item>
-            <ListGroup.Item
-              onClick={() => handleExport("JPG")}
-              className={`action-item`}
-              as="button"
-              action
-            >
-              <i class="fas fa-file-image"></i> Download as image
-            </ListGroup.Item>
-          </div>
-          {/* <ToolTip
-            message="Export as JPG, PDF, or CSV"
-            placement="left"
-            delay={{ show: 200, hide: 50 }}
+              Download as CSV
+            </Typography>
+          </ListItem>
+          <ListItem
+            button
+            style={{
+              paddingTop: 5,
+              paddingBottom: 5,
+              backgroundColor:
+                tooltip.open && tooltip.step === 4 ? "#f1ecfb" : undefined,
+            }}
+            onClick={() => handleExport("PDF")}
           >
-            <ListGroup.Item
-              className="action-item"
-              as="button"
-              action
-              onClick={() => setExportPopupShow(true)}
+            <PictureAsPdfIcon style={{ fontSize: 18, marginRight: 8 }} />
+            <Typography
+              style={{
+                margin: 0,
+                fontSize: "0.7rem",
+                fontWeight: 400,
+                color: "#333",
+              }}
             >
-              <i class="fas fa-file-export"></i> Export
-            </ListGroup.Item>
-          </ToolTip> */}
-          {user ? (
-            <div
-              className={`download-wrapper ${
-                tooltip.open && tooltip.step === 4 ? "tooltip-selected" : ""
-              }`}
+              Download as PDF
+            </Typography>
+          </ListItem>
+          <ListItem
+            button
+            style={{
+              paddingTop: 5,
+              paddingBottom: 5,
+              backgroundColor:
+                tooltip.open && tooltip.step === 4 ? "#f1ecfb" : undefined,
+            }}
+            onClick={() => handleExport("JPG")}
+          >
+            <ImageIcon style={{ fontSize: 18, marginRight: 8 }} />
+            <Typography
+              style={{
+                margin: 0,
+                fontSize: "0.7rem",
+                fontWeight: 400,
+                color: "#333",
+              }}
             >
-              <ListGroup.Item
-                onClick={handleLoadCharts}
-                className={`action-item ${
-                  tooltip.open && tooltip.step === 5 ? "tooltip-selected" : ""
-                }`}
-                as="button"
-                action
-              >
-                <i class="mr-1 far fa-window-maximize"></i> Load saved charts
-              </ListGroup.Item>
-              <ListGroup.Item
-                onClick={handleSave}
-                className={`action-item ${
-                  tooltip.open && tooltip.step === 5 ? "tooltip-selected" : ""
-                }`}
-                as="button"
-                action
-              >
-                <i class="mr-1 fas fa-cloud-upload-alt"></i> Save your chart
-              </ListGroup.Item>
-            </div>
-          ) : (
-            <div
-              className={`download-wrapper ${
-                tooltip.open && tooltip.step === 5 ? "tooltip-selected" : ""
-              }`}
+              Download as JPG
+            </Typography>
+          </ListItem>
+          <ListItem
+            button
+            style={{
+              paddingTop: 5,
+              paddingBottom: 5,
+              backgroundColor:
+                tooltip.open && tooltip.step === 5 ? "#f1ecfb" : undefined,
+            }}
+            disabled={!user}
+            onClick={handleLoadCharts}
+          >
+            <CloudDownloadIcon style={{ fontSize: 18, marginRight: 8 }} />
+            <Typography
+              style={{
+                margin: 0,
+                fontSize: "0.7rem",
+                fontWeight: 400,
+                color: "#333",
+              }}
             >
-              <ToolTip
-                message="Sign in to load your saved charts"
-                delay={{ show: 200, hide: 50 }}
-                placement="left"
-              >
-                <ListGroup.Item
-                  className={`action-item disabled-item`}
-                  as="button"
-                  action
-                >
-                  <i class="mr-1 far fa-window-maximize"></i> Load saved charts
-                </ListGroup.Item>
-              </ToolTip>
-
-              <ToolTip
-                message="Sign in to save your chart"
-                delay={{ show: 200, hide: 50 }}
-                placement="left"
-              >
-                <ListGroup.Item
-                  className={`action-item disabled-item`}
-                  as="button"
-                  action
-                >
-                  <i class="mr-1 fas fa-cloud-upload-alt"></i> Save your chart
-                </ListGroup.Item>
-              </ToolTip>
-            </div>
-          )}
-        </ListGroup>
+              Load saved charts
+            </Typography>
+          </ListItem>
+          <ListItem
+            button
+            style={{
+              paddingTop: 5,
+              paddingBottom: 5,
+              backgroundColor:
+                tooltip.open && tooltip.step === 5 ? "#f1ecfb" : undefined,
+            }}
+            disabled={!user}
+            onClick={handleSave}
+          >
+            <BackupIcon style={{ fontSize: 18, marginRight: 8 }} />
+            <Typography
+              style={{
+                margin: 0,
+                fontSize: "0.7rem",
+                fontWeight: 400,
+                color: "#333",
+              }}
+            >
+              Save your chart
+            </Typography>
+          </ListItem>
+        </List>
       </div>
+
       <SaveChartPopup
         show={savePopupShow}
         onHide={() => setSavePopupShow(false)}

@@ -10,12 +10,12 @@ const Header = () => {
     <section className="landing-header">
       <Container>
         <Row>
-          <Col className="d-none d-md-block">
+          <Col xs={12} md={6} className="">
             <div className="">
               <img src={HeaderImg} className="header-img" alt="meet the team" />
             </div>
           </Col>
-          <Col>
+          <Col xs={12} md={6}>
             <div className="text-box">
               <div>
                 <h1>Meet the easiest org chart software on the planet</h1>

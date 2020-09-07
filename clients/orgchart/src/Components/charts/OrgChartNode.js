@@ -16,7 +16,8 @@ import {
   dropNode,
 } from "../../actions/orgChartActions";
 import "./OrgChartNode.scss";
-import userIcon from "../../assets/user-icon.png";
+
+import AccountCircleSharpIcon from "@material-ui/icons/AccountCircleSharp";
 
 const OrgChartNode = ({
   chart,
@@ -190,9 +191,6 @@ const OrgChartNode = ({
               </Dropdown.Toggle>
             </ManualToggleToolTip>
             <Dropdown.Menu className="more-options-dropdown-menu">
-              {/* <Dropdown.Item as="button" onClick={() => setEditModalShow(true)}>
-                Edit employee
-              </Dropdown.Item> */}
               {nodeData.id && (
                 <Dropdown.Item
                   as="button"
@@ -204,15 +202,12 @@ const OrgChartNode = ({
             </Dropdown.Menu>
           </Dropdown>
         )}
-        <div className="user">
-          <img className="far" src={userIcon} alt="user icon" />
-        </div>
+        <AccountCircleSharpIcon
+          style={{ fontSize: 48, color: "#431f85", marginBottom: 4 }}
+        />
         <div className="name">{nodeData.name}</div>
         <div className="title">{nodeData.title}</div>
         <div className="email">{nodeData.email}</div>
-        {/* <hr />
-        <div className="manager">Manager</div>
-        <div className="manager-name">{nodeData.manager || "-"}</div> */}
       </div>
       <EditEmployeeModal
         selectedNode={nodeData}

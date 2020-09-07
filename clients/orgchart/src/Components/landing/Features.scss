@@ -64,3 +64,17 @@
   margin: 0 auto;
   z-index: 0;
 }
+
+@media screen and (max-width: 768px) {
+  .feature-img {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    z-index: 0;
+    margin-bottom: 1.5rem;
+  }
+  .feature-btn {
+    display: block !important;
+    margin: 2rem auto 2rem;
+  }
+}

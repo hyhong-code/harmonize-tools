@@ -1,9 +1,11 @@
 import React from "react";
 import "./GetStarted.css";
 import { useHistory } from "react-router-dom";
-import { useForm} from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useStateMachine } from "little-state-machine";
 import updateAction from "../../../updateAction";
+
+import GetStartedImg from "../../Assets/getstarted.png";
 
 export default function GetStarted() {
   const { state, action } = useStateMachine(updateAction);
@@ -20,31 +22,40 @@ export default function GetStarted() {
 
   return (
     <>
-          <form onSubmit={handleSubmit(onNextStep)}>
-      <div>
-        <div className="center"  style={{ marginTop: '160px' }}>
-          <h1 className="question">I am a </h1>
-          <span>
-            <input name="iAm" ref={register({ required: true })} className="input" placeholder= "Human Resources Manager" type="text"></input>
-          </span>
-        </div>
+      <form className="get-started__form" onSubmit={handleSubmit(onNextStep)}>
+        <div>
+          <div>
+            <span className="get-started__question">I am a </span>
+            <input
+              name="iAm"
+              ref={register({ required: true })}
+              className="get-started__input"
+              placeholder="Human Resources Manager"
+              type="text"
+            ></input>
+          </div>
 
-        <div className="center">
-          <h1 className="question">Looking to create a </h1>
-          <span>
-            <select className="input">
-              <option selected value="Non-Disclosure Agreement">Non-Disclosure Agreement</option>
-              <option disabled value="Option2">Medical Non-Disclosure Agreement(coming soon)</option>
+          <div>
+            <span className="get-started__question">Looking to create a </span>
+            <select
+              className="get-started__input"
+              defaultValue="Non-Disclosure Agreement"
+            >
+              <option value="Non-Disclosure Agreement">
+                Non-Disclosure Agreement
+              </option>
+              <option disabled value="Option2">
+                Medical Non-Disclosure Agreement(coming soon)
+              </option>
             </select>
-          </span>
-        </div>
-      </div>
-      <div className="center">
-        <button className="button" type="submit">
+          </div>
+
+          <button className="get-started__btn" type="submit">
             Create
-        </button>
-      </div>
+          </button>
+        </div>
       </form>
+      <img src={GetStartedImg} className="get-started__img" alt="Get Started" />
     </>
   );
 }

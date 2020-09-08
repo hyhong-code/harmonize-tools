@@ -10,12 +10,12 @@ import { Container, Row, Col } from "react-bootstrap";
 import Title from "../../../UI/Title/Title";
 
 const relationshipTip = (
-  <span style={{ color: "white", fontSize: "14px"}}>
+  <span style={{ color: "black", fontSize: "14px" }}>
     <b>How does relationship type affect my contract?</b> <br />
-    Specifying working relationship type between parties in the NDA helps to establish the purpose of the Agreement.
+    Specifying working relationship type between parties in the NDA helps to
+    establish the purpose of the Agreement.
   </span>
 );
-
 
 const PartiesRelationship = (props) => {
   const { push } = useHistory();
@@ -37,82 +37,81 @@ const PartiesRelationship = (props) => {
   return (
     <Container>
       <Row>
-        <Col xs={3}><Navigation /></Col>
-
-      <Col>
-      <form onSubmit={handleSubmit(onNextStep)}>
-        <Title />
-        <div className="form-container">
-          {/*********  Parties Relationship *********/}
-          <div style={{ marginBottom: "40px" }}>
-            <h2 className="form-question">
-            What is the relation of the Disclosing Party to Receiving Party?
-              <Tooltip placement="right" tips={relationshipTip} /> 
-            </h2>
-            <Controller
-              as={
-                <TextField
-                  label="Ex. Employer"
-                  style={{ width: "40%"}}
-                  bordered={false}
-                  InputLabelProps={{style: {fontSize: 13}}}
-                  InputProps={{style: {fontSize: 14}}} 
-                  size='small'
+        <Col xs={3}>
+          <Navigation />
+        </Col>
+        <Col xs={{ span: 8, offset: 1 }}>
+          <form onSubmit={handleSubmit(onNextStep)}>
+            <Title />
+            <div className="form-container">
+              {/*********  Parties Relationship *********/}
+              <div style={{ marginBottom: "40px" }}>
+                <h2 className="form-question">
+                  What is the relation of the Disclosing Party to Receiving
+                  Party?
+                  <Tooltip placement="right" tips={relationshipTip} />
+                </h2>
+                <Controller
+                  as={
+                    <TextField
+                      label="Ex. Employer"
+                      style={{ width: "40%" }}
+                      bordered={false}
+                      InputLabelProps={{ style: { fontSize: 13 } }}
+                      InputProps={{ style: { fontSize: 14 } }}
+                      size="small"
+                    />
+                  }
+                  control={control}
+                  ref={register({ required: true })}
+                  name="disclosingToReceiving"
+                  rules={{ required: true }}
                 />
-              }
-              control={control}
-              ref={register({ required: true })}
-              name="disclosingToReceiving"
-              rules={{ required: true }}
-            />
-            {errors.disclosingToReceiving && (
-              <p className="required">This is required.</p>
-            )}
-          </div>
+                {errors.disclosingToReceiving && (
+                  <p className="required">This is required.</p>
+                )}
+              </div>
 
-                    {/*********  Parties Relationship *********/}
-                    <div style={{ marginBottom: "40px" }}>
-            <h2 className="form-question">
-            What is the relation of Receiving Party to Disclosing Party?
-            </h2>
-            <Controller
-              as={
-                <TextField
-                  label="Ex. Employee"
-                  style={{ width: "40%"}}
-                  bordered={false}
-                  InputLabelProps={{style: {fontSize: 13}}}
-                  InputProps={{style: {fontSize: 14}}} 
-                  size='small'
+              {/*********  Parties Relationship *********/}
+              <div style={{ marginBottom: "40px" }}>
+                <h2 className="form-question">
+                  What is the relation of Receiving Party to Disclosing Party?
+                </h2>
+                <Controller
+                  as={
+                    <TextField
+                      label="Ex. Employee"
+                      style={{ width: "40%" }}
+                      bordered={false}
+                      InputLabelProps={{ style: { fontSize: 13 } }}
+                      InputProps={{ style: { fontSize: 14 } }}
+                      size="small"
+                    />
+                  }
+                  control={control}
+                  ref={register({ required: true })}
+                  name="receivingToDisclosing"
+                  rules={{ required: true }}
                 />
-              }
-              control={control}
-              ref={register({ required: true })}
-              name="receivingToDisclosing"
-              rules={{ required: true }}
-            />
-            {errors.receivingToDisclosing && (
-              <p className="required">This is required.</p>
-            )}
-          </div>
+                {errors.receivingToDisclosing && (
+                  <p className="required">This is required.</p>
+                )}
+              </div>
 
-          {/*********  Steps  *********/}
-          <div style={{ marginTop: "90px" }}>
-            <div className="form-end"></div>
-            <div style={{ marginTop: "15px" }}>
-              <button className="Back-Button" onClick={onBackStep}>
-                Back
-              </button>
-              <span className="btn">
-                <button className="Button" type="submit">
-                  Next
-                </button>
-              </span>
+              {/*********  Steps  *********/}
+              <div style={{ marginTop: "90px" }}>
+                <div className="step-container">
+                  <button className="Back-Button" onClick={onBackStep}>
+                    Back
+                  </button>
+                  <button className="Button" type="submit">
+                    Next
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </form>
-      </Col>
+          </form>
+        </Col>
       </Row>
     </Container>
   );

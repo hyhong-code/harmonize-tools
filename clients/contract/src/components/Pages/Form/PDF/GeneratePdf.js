@@ -431,16 +431,14 @@ export default function GeneratePdf() {
           <div
             style={{ width: "680px", marginTop: "15px", marginBottom: "50px" }}
           >
-            <div className="form-end"></div>
-            <div style={{ marginTop: "15px" }}>
+
+            <div className="step-container">
               <button className="Back-Button" onClick={onBackStep}>
                 Back
               </button>
-              <span className="btn" style={{ marginLeft: "150px" }}>
                 <button className="Button" type="submit" onClick={DownloadPDF}>
-                  Download
+                  Next
                 </button>
-              </span>
             </div>
           </div>
         </div>

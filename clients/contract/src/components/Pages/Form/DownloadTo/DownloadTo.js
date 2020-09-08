@@ -7,6 +7,7 @@ import { TextField } from "@material-ui/core";
 import Navigation from "../../../Navigation/Navigation";
 import { Container, Row, Col } from "react-bootstrap";
 import Title from "../../../UI/Title/Title";
+import './DownloadTo.css'
 
 const DownloadTo = (props) => {
   const { push } = useHistory();
@@ -37,17 +38,17 @@ const DownloadTo = (props) => {
         <div className="form-container">
           {/*********  Parties Relationship *********/}
           <div style={{ marginBottom: "40px" }}>
-            <h2 className="form-question" style={{ marginBottom: "40px" }}>
-              Please enter your information to download your contract.
+            <h2 className="save-changes-h1" style={{ marginBottom: "40px" }}>
+              Save Changes
             </h2>
-            <h2 className="form-question">Company</h2>
+            <h2 className="form-question">Form Name</h2>
             {errors.downloadCompnay && (
               <p className="required">This is required.</p>
             )}
             <Controller
               as={
                 <TextField
-                  label="Ex. HarmonizeHQ"
+                  label="Ex. My Non-Disclosure Agreement"
                   style={{ width: "80%" }}
                   bordered={false}
                   InputLabelProps={{style: {fontSize: 13}}} // font size of input label
@@ -61,14 +62,14 @@ const DownloadTo = (props) => {
             />
           </div>
 
-          <h2 className="form-question">Company Email Address</h2>
+          <h2 className="form-question">Add Notes</h2>
           {errors.downloadEmail && (
             <p className="required">This is required.</p>
           )}
           <Controller
             as={
               <TextField
-                label="example@harmonizehq.com"
+                label="Ex. Created in 2020 to match new company guidelines"
                 style={{ width: "80%" }}
                 bordered={false}
                 InputLabelProps={{style: {fontSize: 13}}} // font size of input label
@@ -83,14 +84,13 @@ const DownloadTo = (props) => {
 
           {/*********  Steps  *********/}
           <div style={{ marginTop: "100px" }}>
-            <div className="form-end"></div>
-            <div style={{ marginTop: "15px" }}>
+            <div className="step-container" >
               <button className="Back-Button" onClick={onBackStep}>
-                Back
+                Save as
               </button>
               <span className="btn">
                 <button className="Button" type="submit">
-                  Review
+                  Save
                 </button>
               </span>
             </div>

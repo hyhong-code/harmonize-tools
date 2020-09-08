@@ -14,8 +14,8 @@ const Guide = () => {
         <div className="content">
           <h4>Import your data</h4>
           <p>
-            If you have existing employee data, you can import it here using our
-            .CSV template.
+            If you have existing employee data, you can import it using our .CSV
+            template.
           </p>
         </div>
       )}
@@ -23,8 +23,9 @@ const Guide = () => {
         <div className="content">
           <h4>Create your chart from scratch</h4>
           <p>
-            You can also create your chart from a blank slate. Use the (+)
-            buttons on the sides of an employee's card to add new employees.
+            You can also create your chart from a blank slate. Use the{" "}
+            <strong>(+) buttons</strong> on the sides of an employee's card to
+            add new employees.
           </p>
         </div>
       )}
@@ -32,9 +33,10 @@ const Guide = () => {
         <div className="content">
           <h4>Edit your chart</h4>
           <p>
-            You can edit employee info by clicking anywhere on an employee's
-            card. You can delete an employee by clicking the 3 dots in the upper
-            right hand corner of the card.
+            You can edit employee info by <strong>clicking anywhere</strong> on
+            an employee's card. You can delete an employee by{" "}
+            <strong>clicking the 3 dots</strong> in the upper right hand corner
+            of the card.
           </p>
         </div>
       )}

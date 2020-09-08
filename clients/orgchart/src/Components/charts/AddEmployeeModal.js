@@ -29,7 +29,7 @@ const AddEmployeeModal = ({
   };
 
   const handleSubmit = () => {
-    if (name && title && email) {
+    if (name && title) {
       if (addMode === "DIRECT_REPORT") {
         addNode(selectedNode.id, formData);
       } else if (addMode === "COLLEAGUE_LFET") {
@@ -68,7 +68,7 @@ const AddEmployeeModal = ({
           <Form.Group>
             <Form.Control
               type="text"
-              placeholder="Name"
+              placeholder="Name *"
               name="name"
               value={name}
               onChange={handleChange}
@@ -78,7 +78,7 @@ const AddEmployeeModal = ({
           <Form.Group>
             <Form.Control
               type="text"
-              placeholder="Title"
+              placeholder="Title *"
               name="title"
               value={title}
               onChange={handleChange}
@@ -88,7 +88,7 @@ const AddEmployeeModal = ({
           <Form.Group>
             <Form.Control
               type="email"
-              placeholder="Email"
+              placeholder="Email (Optional)"
               name="email"
               value={email}
               onChange={handleChange}

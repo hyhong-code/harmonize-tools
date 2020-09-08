@@ -218,52 +218,116 @@ const EmployeeInfoPanel = ({
               Download as JPG
             </Typography>
           </ListItem>
-          <ListItem
-            button
-            style={{
-              paddingTop: 5,
-              paddingBottom: 5,
-              backgroundColor:
-                tooltip.open && tooltip.step === 5 ? "#f1ecfb" : undefined,
-            }}
-            disabled={!user}
-            onClick={handleLoadCharts}
-          >
-            <CloudDownloadIcon style={{ fontSize: 18, marginRight: 8 }} />
-            <Typography
-              style={{
-                margin: 0,
-                fontSize: "0.7rem",
-                fontWeight: 400,
-                color: "#333",
-              }}
-            >
-              Load saved charts
-            </Typography>
-          </ListItem>
-          <ListItem
-            button
-            style={{
-              paddingTop: 5,
-              paddingBottom: 5,
-              backgroundColor:
-                tooltip.open && tooltip.step === 5 ? "#f1ecfb" : undefined,
-            }}
-            disabled={!user}
-            onClick={handleSave}
-          >
-            <BackupIcon style={{ fontSize: 18, marginRight: 8 }} />
-            <Typography
-              style={{
-                margin: 0,
-                fontSize: "0.7rem",
-                fontWeight: 400,
-                color: "#333",
-              }}
-            >
-              Save your chart
-            </Typography>
-          </ListItem>
+
+          {!user ? (
+            <Fragment>
+              <ToolTip message="Sign in to use this feature.">
+                <ListItem
+                  style={{
+                    paddingTop: 5,
+                    paddingBottom: 5,
+                    backgroundColor:
+                      tooltip.open && tooltip.step === 5
+                        ? "#f1ecfb"
+                        : undefined,
+                    cursor: "default",
+                  }}
+                >
+                  <CloudDownloadIcon
+                    style={{ fontSize: 18, marginRight: 8, color: "#b3b3b3" }}
+                  />
+                  <Typography
+                    style={{
+                      margin: 0,
+                      fontSize: "0.7rem",
+                      fontWeight: 400,
+                      color: "#b3b3b3",
+                    }}
+                  >
+                    Load saved charts
+                  </Typography>
+                </ListItem>
+              </ToolTip>
+
+              <ToolTip message="Sign in to use this feature.">
+                <ListItem
+                  style={{
+                    paddingTop: 5,
+                    paddingBottom: 5,
+                    backgroundColor:
+                      tooltip.open && tooltip.step === 5
+                        ? "#f1ecfb"
+                        : undefined,
+                    cursor: "default",
+                  }}
+                >
+                  <BackupIcon
+                    style={{ fontSize: 18, marginRight: 8, color: "#b3b3b3" }}
+                  />
+                  <Typography
+                    style={{
+                      margin: 0,
+                      fontSize: "0.7rem",
+                      fontWeight: 400,
+                      color: "#b3b3b3",
+                    }}
+                  >
+                    Save your chart
+                  </Typography>
+                </ListItem>
+              </ToolTip>
+            </Fragment>
+          ) : (
+            <Fragment>
+              <ListItem
+                button
+                style={{
+                  paddingTop: 5,
+                  paddingBottom: 5,
+                  backgroundColor:
+                    tooltip.open && tooltip.step === 5 ? "#f1ecfb" : undefined,
+                }}
+                disabled={!user}
+                onClick={handleLoadCharts}
+              >
+                <CloudDownloadIcon style={{ fontSize: 18, marginRight: 8 }} />
+                <Typography
+                  style={{
+                    margin: 0,
+                    fontSize: "0.7rem",
+                    fontWeight: 400,
+                    color: "#333",
+                  }}
+                >
+                  Load saved charts
+                </Typography>
+              </ListItem>
+
+              <ListItem
+                button
+                style={{
+                  paddingTop: 5,
+                  paddingBottom: 5,
+                  backgroundColor:
+                    tooltip.open && tooltip.step === 5 ? "#f1ecfb" : undefined,
+                }}
+                disabled={!user}
+                onClick={handleSave}
+              >
+                <BackupIcon style={{ fontSize: 18, marginRight: 8 }} />
+                <Typography
+                  style={{
+                    margin: 0,
+                    fontSize: "0.7rem",
+                    fontWeight: 400,
+                    color: "#333",
+                  }}
+                >
+                  Save your chart
+                </Typography>
+              </ListItem>
+            </Fragment>
+          )}
         </List>
       </div>
 

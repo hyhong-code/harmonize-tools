@@ -11,7 +11,8 @@
   transition: width, margin, 0.3s ease-out;
   width: calc(100% - 3rem);
   margin: 1rem 0 1rem 3rem;
-  background: lighten($profile-cards-role-extra-light-grey, 33%);
+  // background: lighten($profile-cards-role-extra-light-grey, 33%);
+  background: lighten(#fbfafe, 0.5);
 
   &.move-right {
     width: calc(100% - 30rem);
@@ -22,7 +23,8 @@
 }
 
 .orgchart.myChart {
-  background: lighten($profile-cards-role-extra-light-grey, 33%);
+  // background: lighten($profile-cards-role-extra-light-grey, 33%);
+  background: lighten(#fbfafe, 0.5);
   // border: 2px dashed transparent;
   border-radius: 10px;
   padding: 5rem 25rem 10rem;

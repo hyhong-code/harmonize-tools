@@ -24,7 +24,7 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
   };
 
   const handleSubmit = () => {
-    if (name && title && email) {
+    if (name && title) {
       updateNode(selectedNode.id, formData);
       otherProps.setEditModalShow(false);
     } else {
@@ -55,7 +55,7 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
             <Form.Control
               className="modal-input"
               type="text"
-              placeholder="Name"
+              placeholder="Name *"
               name="name"
               value={name}
               onChange={handleChange}
@@ -65,7 +65,7 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
             <Form.Control
               className="modal-input"
               type="text"
-              placeholder="Title"
+              placeholder="Title *"
               name="title"
               value={title}
               onChange={handleChange}
@@ -75,7 +75,7 @@ const EditEmployeeModal = ({ selectedNode, updateNode, ...otherProps }) => {
             <Form.Control
               className="modal-input"
               type="email"
-              placeholder="Email"
+              placeholder="Email (Optional)"
               name="email"
               value={email}
               onChange={handleChange}

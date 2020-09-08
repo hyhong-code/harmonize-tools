@@ -7,7 +7,7 @@
   display: flex;
 
   // padding: 1rem 2.4rem;
-  box-shadow: 0 2px 4px rgba(#000, 0.2);
+  box-shadow: 0 3px 7px rgba(#000, 0.3);
   padding: 0 15px;
 
   justify-content: space-between;
@@ -17,7 +17,8 @@
   transition: padding, 0.3s ease-out;
 
   .home-link {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     padding: 0.2rem 0.5rem;
     border-radius: 5px;
     background-color: lighten($main-color, 3%);

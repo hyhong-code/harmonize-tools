@@ -73,8 +73,37 @@
     z-index: 0;
     margin-bottom: 1.5rem;
   }
+
   .feature-btn {
     display: block !important;
     margin: 2rem auto 2rem;
+  }
+
+  .landing-features {
+    .container {
+      h2 {
+        font-size: 1.6rem;
+        font-weight: bold;
+      }
+
+      p.sub {
+        font-size: 1rem;
+        color: $light-grey-text-body;
+        margin-bottom: 5rem;
+      }
+    }
+
+    .feature-card {
+      .feature-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .feature-text {
+        font-size: 1rem;
+        text-align: center;
+      }
+    }
   }
 }
